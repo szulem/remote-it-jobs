@@ -1,0 +1,18 @@
+= simple_form_for @job do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :category_id, collection: @categories
+  = f.input :email
+  = f.input :url
+  .form-group
+    .row
+      .col-md-3
+        = f.input :salary_from, label: "Salary from", placeholder: "2500"
+      .col-md-3
+        = f.input :salary_to, label: "Salary to", placeholder: "8500"
+      .col-md-3
+        = f.input :currency, as: :select, collection: ["PLN", "EUR", "USD", "GBP"], selected: @job.currency
+      .col-md-3
+        = f.input :salary_per, as: :select, collection: ["hour", "day", "week", "month", "year"], selected: @job.salary_per
+  / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
+  = f.button :submit, class: "btn btn-primary"

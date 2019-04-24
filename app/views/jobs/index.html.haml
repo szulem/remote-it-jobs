@@ -1,0 +1,10 @@
+%h1 Jobs#index
+
+= link_to "+ Add new job", new_job_path
+
+%h2 Last jobs
+
+%ul
+	- @jobs.each do |f|
+		%li
+			= link_to "#{f.title}", job_path(f)
