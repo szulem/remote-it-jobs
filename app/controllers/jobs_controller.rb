@@ -2,7 +2,7 @@ class JobsController < ApplicationController
 	before_action :set_all_categories, only: [:new, :edit]
 
   def index
-  	@jobs = Job.all
+  	@jobs = Job.all.order('created_at DESC')
   end
 
   def show

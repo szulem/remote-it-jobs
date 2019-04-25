@@ -4,7 +4,10 @@
 
 %h2 Last jobs
 
-%ul
+%table.table.table-hover
 	- @jobs.each do |f|
-		%li
-			= link_to "#{f.title}", job_path(f)
+		%tr
+			%td
+				= f.created_at.strftime("%d %h, %H:%M")
+			%td
+				= link_to "#{f.title}", job_path(f)
