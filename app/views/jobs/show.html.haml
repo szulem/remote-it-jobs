@@ -1,13 +1,31 @@
 .row
   .col-md-8
     %h1= @job.title
+    %ol.breadcrumb
+      %li= @job.created_at.strftime("%d/%m")
+      %li= @job.company_name
+      %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
+      / %li= mail_to @job.email
+      %li= link_to "Apply for this position", @job.url, target: "_blank"
+
+      = " / "
+      %a{href: "#{edit_job_path(@job)}"}
+        %button.btn.btn-warning.btn-xs{type: "button"} Edit
+
     %p= @job.description.html_safe if @job.description.present?
+    %br
+    %a{href: "#{@job.url}", target: "_blank"}
+      %button.btn.btn-success{type: "button"} Apply for this position
+    %br
+    %br
+    %br
   .col-md-1
   .col-md-3
     .thumbnail
       .caption
-        %h2 Company
-        %p Firma taka i taka coś tam robi
+        = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
+        %h3= @job.company_name
+        %p= mail_to @job.email
 
     %br
     %br
