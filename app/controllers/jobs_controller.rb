@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 
   def show
   	@job = Job.find(params[:id])
+  	@jobs = Job.all.order('created_at DESC').take(5)
   end
 
   def new
