@@ -13,7 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require tinymce
 //= require activestorage
 //= require turbolinks
+//= require tinymce
 //= require_tree .

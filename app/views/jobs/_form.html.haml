@@ -1,10 +1,8 @@
-%h1= "Jobs#new"
-
 %br
 
 = simple_form_for @job do |f|
   .form-group
-    = f.input :title
+    = f.input :title, placeholder: "Junior Ruby on Rails Developer"
   .form-group
     = f.label :description
     = f.text_area :description, class: "tinymce", rows: 16
@@ -12,9 +10,9 @@
   .form-group
     = f.input :category_id, collection: @categories
   .form-group
-    = f.input :email
+    = f.input :email, placeholder: "e.g. john@company.com"
   .form-group
-    = f.input :url
+    = f.input :url, placeholder: "e.g. www.yourcompany.com or url of the job offer"
   .form-group
     .row
       .col-md-3
@@ -26,4 +24,10 @@
       .col-md-3
         = f.input :salary_per, as: :select, collection: ["hour", "day", "week", "month", "year"], selected: @job.salary_per
   / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
+  .form-group
+    = f.input :company_name, placeholder: "Your company"
+  .form-group
+    = f.input :company_logo, as: :file
+    = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
+  %br
   = f.button :submit, class: "btn btn-primary"

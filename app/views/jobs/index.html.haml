@@ -5,9 +5,17 @@
 %h2 Last jobs
 
 %table.table.table-hover
-	- @jobs.each do |f|
-		%tr
-			%td
-				= f.created_at.strftime("%d %h, %H:%M")
-			%td
-				= link_to "#{f.title}", job_path(f)
+  - @jobs.each do |f|
+    %tr
+      %td
+        = f.created_at.strftime("%d %h, %H:%M")
+      %td
+        = link_to "#{f.title}", job_path(f)
+      %td
+        = link_to "Edit", edit_job_path(f)
+      - if f.company_logo.present?
+        %td
+          = image_tag("#{f.company_logo.url(:mini)}")
+      - else
+        %td
+          = " "

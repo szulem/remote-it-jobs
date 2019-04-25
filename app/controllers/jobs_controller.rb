@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   def create
   	@job = Job.new(job_params)
   	if @job.save
-  		redirect_to @job, notice: "Successfully added new Job"
+  		redirect_to @job, notice: "Successfully added a new Job"
   	else
   		render 'new'
   	end
@@ -28,14 +28,19 @@ class JobsController < ApplicationController
   end
 
   def update
-
+  	@job = Job.find(params[:id])
+  	if @job.update(job_params)
+  		redirect_to @job, notice: "The job was successfully updated."
+  	else
+  		render 'edit'
+  	end
   end
 
   private
 
   def job_params
   	# params.require(:job).permit(:title, :category_id)
-  	params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id)
+  	params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_logo)
   end
 
   def set_all_categories
