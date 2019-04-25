@@ -3,11 +3,18 @@
 %br
 
 = simple_form_for @job do |f|
-  = f.input :title
-  = f.input :description
-  = f.input :category_id, collection: @categories
-  = f.input :email
-  = f.input :url
+  .form-group
+    = f.input :title
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: "tinymce", rows: 16
+    = tinymce
+  .form-group
+    = f.input :category_id, collection: @categories
+  .form-group
+    = f.input :email
+  .form-group
+    = f.input :url
   .form-group
     .row
       .col-md-3

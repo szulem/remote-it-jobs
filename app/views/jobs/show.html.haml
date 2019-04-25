@@ -1,4 +1,21 @@
-%h1= @job.title
-%p= @job.description
+.row
+  .col-md-8
+    %h1= @job.title
+    %p= @job.description.html_safe if @job.description.present?
+  .col-md-1
+  .col-md-3
+    .thumbnail
+      .caption
+        %h2 Company
+        %p Firma taka i taka coś tam robi
+
+    %br
+    %br
+    
+    %h3 Similar jobs
+    %ul
+      - @jobs.each do |f|
+        %li
+          = link_to "#{f.title}", job_path(f)
 
 = link_to "<-- Home", root_path
