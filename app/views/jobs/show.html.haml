@@ -2,7 +2,9 @@
   .col-md-8
     %h1= @job.title
     %ol.breadcrumb
-      %li= @job.created_at.strftime("%d/%m")
+      %li
+        %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
+        = @job.created_at.strftime("%d/%m")
       %li= @job.company_name
       %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
       / %li= mail_to @job.email

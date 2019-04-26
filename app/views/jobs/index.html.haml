@@ -4,18 +4,24 @@
 
 %h2 Last jobs
 
-%table.table.table-hover
-  - @jobs.each do |f|
-    %tr
-      %td
-        = f.created_at.strftime("%d %h, %H:%M")
-      %td
-        = link_to "#{f.title}", job_path(f)
-      %td
-        = link_to "Edit", edit_job_path(f)
+- @jobs.each do |f|
+  %a{href: "#{job_path(f)}"}
+    .row.job-item.center
       - if f.company_logo.present?
-        %td
+        .col-md-1.first-col
           = image_tag("#{f.company_logo.url(:mini)}")
       - else
-        %td
+        .col-md-1.first-col
           = " "
+      / .col-md-1
+      .col-md-6
+        %h4.bolded
+          = link_to "#{f.title}", job_path(f)
+        = f.company_name
+      .col-md-3
+        %h4.bolded Salary
+        = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
+      .col-md-1
+      .col-md-1
+        %a{href: "#{job_path(f)}"}
+          %button.btn.btn-success{type: "button"} Apply

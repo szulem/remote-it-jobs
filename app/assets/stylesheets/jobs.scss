@@ -1,3 +1,44 @@
 // Place all the styles related to the Jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row-padded {
+	padding: 15px;
+  background-color: #F9F9F9;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.no-background {
+  background-color: #ffffff;
+}
+
+.job-item {
+    /*width: 100%;*/
+    padding: 22px;
+    border-radius: 5px;
+    margin: 0 0 15px 0;
+    -webkit-transition: ease 0.2s;
+    transition: ease 0.2s;
+    border: 2px solid #F4F4F4;
+    background-color: #f9f9f9;
+    position: relative;
+    height: 14rem;
+}
+
+.center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 10vh; /* These two lines are counted as one 🙂       */
+  display: flex;
+  align-items: center;
+}
+
+.first-col {
+  width: 120px !important;
+  margin-right: 10px;
+  text-align: center;
+}
+
+h4.bolded {
+  font-weight: bold;
+}
