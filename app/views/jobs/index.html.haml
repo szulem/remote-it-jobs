@@ -1,8 +1,4 @@
-%h1 Jobs#index
-
-= link_to "+ Add new job", new_job_path
-
-%h2 Last jobs
+%h1 Last jobs
 
 - @jobs.each do |f|
   %a{href: "#{job_path(f)}"}
