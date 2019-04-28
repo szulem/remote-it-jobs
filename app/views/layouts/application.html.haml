@@ -15,7 +15,7 @@
           .navbar-brand= link_to "remojobs.com", root_path
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "+ Post a job", new_job_path
-            %li= link_to "Login", root_path
-            %li= link_to "Register", root_path
+            %li= link_to "Log in", new_user_session_path
+            %li= link_to "Register", new_user_registration_path
     .container
       = yield
