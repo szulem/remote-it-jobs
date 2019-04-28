@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+	before_action :authenticate_user!, except: %i[index show]
 	before_action :set_all_categories, only: [:new, :edit]
 
   def index
