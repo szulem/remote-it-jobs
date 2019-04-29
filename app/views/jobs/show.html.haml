@@ -25,7 +25,10 @@
   .col-md-3
     .thumbnail
       .caption
-        = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
+        - if @job.company_logo.present?
+          = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
+        - else
+          = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
         %h3= @job.company_name
         %p= mail_to @job.email
 
