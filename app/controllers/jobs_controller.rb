@@ -1,8 +1,8 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :job_owner, only: %i[edit update destroy]
   before_action :set_all_categories, only: [:new, :edit]
-  before_action :find_job, only: %i[show edit update job_owner]
+  before_action :set_job, only: %i[show edit update destroy job_owner]
+  before_action :job_owner, only: %i[edit update destroy]
 
   def index
     @jobs = Job.all.order('created_at DESC')
@@ -19,9 +19,9 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.new(job_params)
     if @job.save
-      redirect_to @job, notice: "Successfully added a new Job"
+      redirect_to @job, notice: "Successfully added a new Job."
     else
-      render 'new'
+      render 'new', notice: "You have to fill all required fields."
     end
   end
 
@@ -43,7 +43,7 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_logo, :user_id)
   end
 
-  def find_job
+  def set_job
     @job = Job.find(params[:id])
   end
 
@@ -57,4 +57,5 @@ class JobsController < ApplicationController
       redirect_to root_path
     end
   end
+
 end

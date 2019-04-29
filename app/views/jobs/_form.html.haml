@@ -28,6 +28,6 @@
     = f.input :company_name, placeholder: "Your company"
   .form-group
     = f.input :company_logo, as: :file
-    = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
+    = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?.present?
   %br
   = f.button :submit, class: "btn btn-primary"
