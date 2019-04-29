@@ -22,3 +22,6 @@
               %li= link_to "Logout", destroy_user_session_path, method: :delete
     .container
       = yield
+    .footer
+      .container
+        = "&copy; remojobs.com | Remote IT job board".html_safe
