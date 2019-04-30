@@ -8,7 +8,7 @@
     = f.text_area :description, class: "tinymce", rows: 16
     = tinymce
   .form-group
-    = f.input :category_id, collection: @categories
+    = f.association :category
   .form-group
     = f.input :email, placeholder: "e.g. john@company.com"
   .form-group

@@ -36,6 +36,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def destroy
+    @job.destroy
+    redirect_to jobs_path, notice: "Your job offer was successfully destroyed."
+  end
+
   private
 
   def job_params
