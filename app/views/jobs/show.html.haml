@@ -8,11 +8,10 @@
       %li= @job.company_name
       %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
       / %li= mail_to @job.email
-      %li= link_to "Apply for this position", @job.url, target: "_blank"
+      %li= link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
 
       - if user_signed_in?
         - if @job.user_id == current_user.id
-          = " / "
           = link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning btn-xs'
           = link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
 
