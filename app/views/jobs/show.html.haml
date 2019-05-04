@@ -36,9 +36,9 @@
     %br
     %br
     
-    %h3 Similar jobs
+    %h3= "Other #{@job.category.name} offers"
     %ul
-      - @jobs.each do |f|
+      - @job.category.jobs.each do |f|
         %li
           = link_to "#{f.title}", job_path(f)
 

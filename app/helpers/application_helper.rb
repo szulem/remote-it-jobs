@@ -8,5 +8,9 @@ module ApplicationHelper
       when 'alert' then "alert alert-warning"
     end
   end
+
+  def big_first(word)
+  	word.capitalize
+  end
 	
 end
