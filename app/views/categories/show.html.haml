@@ -1,0 +1,4 @@
+%h1= big_first(@category.name) + " jobs"
+
+- @category.jobs.each do |f|
+  = render partial: '/common_files/jobs-list', locals: { f: f }
