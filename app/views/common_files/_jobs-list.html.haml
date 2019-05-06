@@ -10,6 +10,7 @@
     .col-md-6
       %h4.bolded
         = link_to "#{f.title}", job_path(f)
+        = new_offer?(f)
       = f.company_name
     .col-md-3
       %h4.bolded Salary
