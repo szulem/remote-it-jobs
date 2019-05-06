@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-  	@category = Category.find_by(name: params[:name])
+    @category = Category.find_by(name: params[:name])
+    @category_jobs = @category.jobs.order('created_at DESC')
   end
 end
