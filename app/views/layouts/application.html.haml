@@ -16,7 +16,7 @@
             = link_to image_tag("remojobs_30.png", alt: "Remote IT jobs"), root_path
           %ul.nav.navbar-nav.navbar
             - Category.all.each do |f|
-              %li= link_to big_first(f.name), category_path(f)
+              %li= link_to (f.name), category_path(f)
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "+ Post a job", new_job_path
             - if !user_signed_in?

@@ -1,8 +1,11 @@
 class Category < ApplicationRecord
-	has_many :jobs
+  has_many :jobs
 
-  def to_param
-    name
-  end
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
+  # def to_param
+  #   name
+  # end
   
 end
