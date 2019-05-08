@@ -17,5 +17,14 @@ class Job < ApplicationRecord
   validates_attachment_content_type :company_logo, content_type: /\Aimage\/.*\z/
 
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :company_and_title, use: :slugged
+  def company_and_title
+    "#{id} #{title} at #{company_name}"
+  end
+
+  # it change the job's url after update
+  def should_generate_new_friendly_id?
+    company_name_changed? || title_changed? || super
+  end
+
 end
