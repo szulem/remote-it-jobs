@@ -2,7 +2,7 @@ class Job < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 60 }
   validates :description, presence: true
   validates :email, presence: true
   validates :url, presence: true
@@ -19,7 +19,7 @@ class Job < ApplicationRecord
   extend FriendlyId
   friendly_id :company_and_title, use: :slugged
   def company_and_title
-    "#{id} #{title} at #{company_name}"
+    "#{id} remote #{title} at #{company_name}"
   end
 
   # it change the job's url after update

@@ -37,10 +37,12 @@
     %br
     %br
     
-    %h3= "Other #{@job.category.name} offers"
-    %ul
-      - @job.category.jobs.each do |f|
-        %li
-          = link_to "#{f.title}", job_path(f)
+    .panel.panel-default
+      .panel-body
+        %h3= "Other #{@job.category.name} offers"
+      %ul.list-group
+        - @job.category.jobs.each do |f|
+          %li.list-group-item
+            = link_to "#{f.title}", job_path(f)
 
 = link_to "<-- Home", root_path

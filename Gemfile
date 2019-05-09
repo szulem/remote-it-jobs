@@ -21,6 +21,7 @@ gem 'paperclip', '~> 6.1'
 gem 'jquery-rails'
 gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
+gem 'ckeditor'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
