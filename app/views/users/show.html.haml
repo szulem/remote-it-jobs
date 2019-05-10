@@ -1,4 +1,8 @@
 %h2= @user.email
 
+- if @user.jobs.count == 0
+  %br
+  = link_to "+ Add your first job offer", new_job_path, class: 'btn btn-success btn'
+
 - @jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }

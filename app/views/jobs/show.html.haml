@@ -40,7 +40,7 @@
     
     .panel.panel-default
       .panel-body
-        %h3= "Other #{@job.category.name} offers"
+        %h3.sidebar= "Other #{@job.category.name} offers"
       %ul.list-group
         - @job.category.jobs.each do |f|
           %li.list-group-item
