@@ -9,7 +9,8 @@ class JobsController < ApplicationController
   end
 
   def show
-    @jobs = Job.all.order('created_at DESC').take(5)
+    # @jobs = Job.all.order('created_at DESC').take(5)
+    @jobs_category = @job.category.jobs.order('created_at DESC').take(6)
   end
 
   def new
