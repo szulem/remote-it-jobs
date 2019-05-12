@@ -2,3 +2,5 @@
 
 - @jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
+  
+= paginate @jobs
