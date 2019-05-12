@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   before_action :job_owner, only: %i[edit update destroy]
 
   def index
-    @jobs = Job.all.order('created_at DESC')
+    @jobs = Job.all.order('created_at DESC').page params[:page]
   end
 
   def show
