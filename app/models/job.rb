@@ -2,7 +2,7 @@ class Job < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  paginates_per 6
+  paginates_per 10
 
   validates :title, presence: true, length: { minimum: 5, maximum: 60 }
   validates :description, presence: true
