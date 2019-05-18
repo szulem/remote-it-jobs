@@ -60,8 +60,8 @@ class JobsController < ApplicationController
   end
 
   def job_owner
-    unless @job.user_id == current_user.id
-      flash[:alert] = "You don't have permission to edit this offer."
+    unless @job.user_id == current_user.id || current_user.admin?
+      flash[:alert] = "You don't have permission to edit and destroy this offer."
       redirect_to root_path
     end
   end
