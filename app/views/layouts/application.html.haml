@@ -25,6 +25,8 @@
             - else
               - if current_user.jobs.count > 0
                 %li= link_to "My job offers <span class='badge'>#{current_user.jobs.count}</span>".html_safe, user_path(current_user)
+              - elsif current_user.admin?
+                %li= link_to "<strong>Admin</strong>".html_safe, user_path(current_user)
               - else
                 %li= link_to "My job offers", user_path(current_user)
               %li= link_to "Logout", destroy_user_session_path, method: :delete

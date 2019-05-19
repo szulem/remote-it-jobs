@@ -17,5 +17,7 @@
       = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
     .col-md-1
     .col-md-1
-      %a{href: "#{job_path(f)}"}
-        %button.btn.btn-success{type: "button"} Apply
+      - if user_signed_in? && current_page?(user_path(current_user))
+        = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+      - else
+        = link_to "Apply", job_path(f), class: 'btn btn-success'
