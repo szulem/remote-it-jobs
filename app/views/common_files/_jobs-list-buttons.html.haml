@@ -1,0 +1,6 @@
+- if user_signed_in? && f.user_id == current_user.id || current_user.try(:admin?)
+  = link_to "Show", job_path(f), class: 'btn btn-default btn-xs admin-buttons'
+  = link_to "Edit", edit_job_path(f), class: 'btn btn-info btn-xs admin-buttons'
+  = link_to 'Delete', job_path(f), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+- else
+  = link_to "Apply", job_path(f), class: 'btn btn-success'

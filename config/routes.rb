@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :categories
   resources :users
+  get '/admin123' => 'users#admin123'
 
   mount Ckeditor::Engine => '/ckeditor'
   # get '/users/:id' => 'users#show', as: :profile
