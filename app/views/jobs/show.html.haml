@@ -4,7 +4,7 @@
     %h1= @job.title
     %ol.breadcrumb
       %li
-        %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
+        %span.glyphicon.glyphicon-calendar
         = @job.created_at.strftime("%d/%m")
       %li= @job.company_name
       %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
