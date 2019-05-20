@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_all_categories, only: [:new, :edit]
+  before_action :set_all_users
   before_action :set_job, only: %i[show edit update destroy job_owner]
   before_action :job_owner, only: %i[edit update destroy]
 
@@ -20,11 +21,11 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.new(job_params)
     if @job.save
-      redirect_to @job
       flash[:success] = "Successfully added a new Job."
+      redirect_to @job
     else
-      render 'new'
       flash[:error] = "You have to fill all required fields."
+      render 'new'
     end
   end
 
@@ -35,6 +36,7 @@ class JobsController < ApplicationController
     if @job.update(job_params)
       redirect_to @job, notice: "The job was successfully updated."
     else
+      flash[:error] = "You have to fill all required fields."
       render 'edit'
     end
   end
@@ -57,6 +59,10 @@ class JobsController < ApplicationController
 
   def set_all_categories
     @categories = Category.all
+  end
+
+  def set_all_users
+    @users = User.all
   end
 
   def job_owner
