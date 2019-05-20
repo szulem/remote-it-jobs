@@ -27,6 +27,13 @@
     = f.input :company_name, placeholder: "Your company"
   .form-group
     = f.input :company_logo, as: :file
-    = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?.present?
+    = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
+  - if current_user.admin?
+    - if @users.present? && @job.user.present?
+      .form-group
+        = f.input :user_id, as: :select, collection: @users.map { |u| u.id }, selected: @job.user.id
+    - else
+      .form-group
+        = f.input :user_id, as: :select, collection: @users.map { |u| u.id }
   %br
   = f.button :submit, class: "btn btn-primary"
