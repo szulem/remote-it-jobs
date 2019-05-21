@@ -5,7 +5,5 @@
 - elsif current_user.admin?
   = link_to "Edit", edit_job_path(f), class: 'btn btn-info btn-xs admin-buttons'
   = link_to "Delete", job_path(f), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs admin-buttons'
-  - if f.user.present?
-    = link_to "#{f.user_id}", user_path(f), title: "#{f.user.email}", class: "btn btn-default btn-xs"
 - else
   = link_to "Apply", job_path(f), class: 'btn btn-success'
