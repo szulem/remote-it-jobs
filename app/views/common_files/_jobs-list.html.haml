@@ -1,23 +1,31 @@
-%a{href: "#{job_path(f)}"}
-  .row.job-item.center
-    - if f.company_logo.present?
-      .col-md-1.first-col
-        = image_tag("#{f.company_logo.url(:mini)}")
-    - else
-      .col-md-1.first-col
-        = image_tag("https://dummyimage.com/80x30/f4f4f4/000000.png&text=no logo")
-    / .col-md-1
-    .col-md-6
-      %h4.bolded
-        = link_to "#{f.title}", job_path(f)
-        = new_offer?(f)
-      = f.company_name
-    .col-md-3
-      %h4.bolded Salary
-      = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
-    .col-md-1
-    .col-md-1
-      - if user_signed_in? && current_page?(user_path(current_user))
-        = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+.row.job-item.center
+  - if f.company_logo.present?
+    .col-md-1.first-col
+      = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
+  - else
+    .col-md-1.first-col
+      = link_to image_tag("https://dummyimage.com/80x30/f4f4f4/000000.png&text=no logo"), job_path(f)
+  / .col-md-1
+  .col-md-6
+    %h4.bolded
+      = link_to "#{f.title}", job_path(f)
+      = new_offer?(f)
+    = f.company_name
+  .col-md-3
+    %h4.bolded Salary
+    = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
+
+  - if user_signed_in? && current_user.admin?
+    .col-md-2
+      - if f.user.present?
+        = link_to "#{f.user.email}", user_path(f), class: 'btn btn-default btn-xs admin-buttons'
       - else
-        = link_to "Apply", job_path(f), class: 'btn btn-success'
+        = link_to "no user", root_path, class: 'btn btn-warning btn-xs admin-buttons'
+  - else
+    .col-md-1
+
+  .col-md-1
+    - if user_signed_in? && current_page?(user_path(current_user))
+      = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+    - else
+      = link_to "Apply", job_path(f), class: 'btn btn-success'
