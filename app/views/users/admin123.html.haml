@@ -1,4 +1,26 @@
-%ul
+%h2 List of users
+%table.table.table-hover
+  %thead
+    %tr
+      %th ID
+      %th email
+      %th Jobs
+      %th Logins
+      %th Created at
+      %th Last seen
+      %th Last IP
+      %th Actions
   - @users.each do |f|
-    %li
-      = f.email
+    %tr
+      %td= f.id
+      %td= f.email
+      %td= f.jobs.count
+      %td= f.sign_in_count
+      %td= f.created_at.strftime("%Y-%m-%d %H:%M")
+      %td
+        -if f.last_sign_in_at.present?
+          = f.last_sign_in_at.strftime("%Y-%m-%d %H:%M")
+      %td= f.last_sign_in_ip
+      %td
+        = link_to 'Show', user_path(f), class: 'btn btn-primary btn-xs'
+        = link_to 'Edit', edit_user_path(f), class: 'btn btn-warning btn-xs'
