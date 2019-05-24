@@ -1,10 +1,11 @@
-- provide(:title, @job.title + " @ " + @job.company_name)
+- if @job.company_name.present?
+  - provide(:title, @job.title + " @ " + @job.company_name)
 .row
   .col-md-8
     %h1= @job.title
     %ol.breadcrumb
       %li
-        %span.glyphicon.glyphicon-calendar
+        %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
         = @job.created_at.strftime("%d/%m")
       %li= @job.company_name
       %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
