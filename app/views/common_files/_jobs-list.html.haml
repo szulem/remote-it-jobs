@@ -3,28 +3,31 @@
     .col-md-1.first-col
       = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
   - else
-    .col-md-1.first-col
-      = link_to image_tag("https://dummyimage.com/80x30/f4f4f4/000000.png&text=no logo"), job_path(f)
+    .col-xs-1.col-md-1.first-col
+      = link_to image_tag("https://dummyimage.com/50x40/f4f4f4/000000.png&text=no logo"), job_path(f)
   / .col-md-1
-  .col-md-6
+  .col-xs-11.col-md-6
     %h4.bolded
       = link_to "#{f.title}", job_path(f)
       = new_offer?(f)
     = f.company_name
-  .col-md-3
+  .col-md-2.hidden-xs
     %h4.bolded Salary
     = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
 
   - if user_signed_in? && current_user.admin?
-    .col-md-2
+    .col-md-2.hidden-xs
       - if f.user.present?
-        = link_to "#{f.user.email}", user_path(f), class: 'btn btn-default btn-xs admin-buttons'
+        = link_to "#{f.user.email}", job_path(f), class: 'btn btn-default btn-xs admin-buttons'
       - else
         = link_to "no user", root_path, class: 'btn btn-warning btn-xs admin-buttons'
+      %br
+      = "Days: "
+      = days_from_start_rounded(f.created_at)
   - else
-    .col-md-1
+    .col-md-1.hidden-xs
 
-  .col-md-1
+  .col-md-1.hidden-xs
     - if user_signed_in? && current_page?(user_path(current_user))
       = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
     - else
