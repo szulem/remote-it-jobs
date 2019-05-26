@@ -1,7 +1,11 @@
 .row.job-item.center
   - if f.company_logo.present?
-    .col-md-1.first-col
-      = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
+    - if is_mobile_device?
+      .col-xs-1.first-col
+        = link_to image_tag("#{f.company_logo.url(:micro)}"), job_path(f)
+    - else
+      .col-md-1.first-col
+        = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
   - else
     .col-xs-1.col-md-1.first-col
       = link_to image_tag("https://dummyimage.com/50x40/f4f4f4/000000.png&text=no logo"), job_path(f)

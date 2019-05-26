@@ -23,6 +23,7 @@ gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'ckeditor'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'mobile-fu'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
