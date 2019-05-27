@@ -23,5 +23,11 @@ module ApplicationHelper
       page_title + " | " + end_title
     end
   end
+
+  # for "active" class in menu
+  def current_class?(test_path)
+    return 'active' if request.path == test_path
+    ''
+  end
 	
 end
