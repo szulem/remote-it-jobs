@@ -29,5 +29,16 @@ module ApplicationHelper
     return 'active' if request.path == test_path
     ''
   end
+
+  def instead_of_logo(title)
+    output = ""
+    if title != nil
+      @words = title.split(" ")
+      @words.each do |f|
+        output << f[0]
+      end
+    end
+    output.upcase
+  end
 	
 end
