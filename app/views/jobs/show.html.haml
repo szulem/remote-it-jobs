@@ -1,6 +1,6 @@
 - if @job.company_name.present?
   - provide(:title, @job.title + " @ " + @job.company_name)
-.row
+.row.no-margin
   .col-md-8
     %h1= @job.title
     %ol.breadcrumb
