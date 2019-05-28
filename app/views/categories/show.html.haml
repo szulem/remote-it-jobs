@@ -1,5 +1,5 @@
 - provide(:title, @category.name + " job offers ")
-%h2= @category.name + " jobs"
+%h2.centered= @category.name + " jobs"
 
 - @category_jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
