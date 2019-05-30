@@ -1,6 +1,7 @@
-%br
-
 = simple_form_for @job do |f|
+  - if current_user.admin?
+    .form-group
+      = f.input :status
   .form-group
     = f.input :title, placeholder: "Junior Ruby on Rails Developer"
   .form-group
