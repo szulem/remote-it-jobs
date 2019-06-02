@@ -1,0 +1,4 @@
+%h2.centered New jobs
+- if current_user.admin?
+  - @jobs_inactive.each do |f|
+    = render partial: '/common_files/jobs-list-admin-new', locals: { f: f }

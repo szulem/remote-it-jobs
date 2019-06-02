@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i[show admin123]
+  before_action :authenticate_user!, only: %i[show admin123 newjobs]
 
   def show
     @user = User.find(params[:id])
-    @jobs = @user.jobs.order('created_at DESC')
+    @jobs = Job.where(user: current_user).order('created_at DESC').page(params[:page])
     @jobs_all = Job.all.order('created_at DESC')
 
     if @user != current_user
@@ -18,5 +18,9 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def newjobs
+    @jobs_inactive = Job.where(status: false).order('created_at DESC')
   end
 end
