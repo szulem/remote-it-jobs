@@ -43,8 +43,9 @@
                       %span.caret
                     %ul.dropdown-menu
                       %li
-                        = link_to "All jobs", user_path(current_user)
-                        = link_to "List of users", admin123_path
+                        = link_to "New jobs (#{Job.where(status: false).count})", new_jobs_path
+                        = link_to "All jobs (#{Job.all.count})", user_path(current_user)
+                        = link_to "List of users (#{User.all.count})", admin123_path
                 - elsif !current_user.admin? && current_user.jobs.count > 0
                   %li{class: "#{current_class?(user_path(current_user))}"}
                     = link_to "<span class='glyphicon glyphicon-user'></span> My job offers <span class='badge'>#{current_user.jobs.count}</span>".html_safe, user_path(current_user)
