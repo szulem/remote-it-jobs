@@ -2,7 +2,7 @@ class Job < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  paginates_per 10
+  paginates_per 15
 
   validates :title, presence: true, length: { minimum: 5, maximum: 60 }
   validates :description, presence: true
@@ -17,6 +17,15 @@ class Job < ApplicationRecord
 
   has_attached_file :company_logo, styles: { medium: "234x300>", thumb: "100x100>", mini: "80x40>", micro: "50x50>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :company_logo, content_type: /\Aimage\/.*\z/
+
+  # set ID to the new offers
+  after_commit :update_slug, on: :create
+  def update_slug
+    unless slug.include? self.id.to_s
+      self.slug = nil
+      self.save
+    end
+  end
 
   extend FriendlyId
   friendly_id :company_and_title, use: :slugged
