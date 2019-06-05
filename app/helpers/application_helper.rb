@@ -40,5 +40,20 @@ module ApplicationHelper
     end
     output.upcase
   end
+
+  def email_stars(email)
+    @domain = email.split("@")[1]
+    @alias = email.split("@")[0]
+    @name = @domain.split(".")[0]
+    @dotcom = @domain.split(".")[1]
+    # @mask = @name.tap { |p| p[1...@name.length-2] = "***"}
+    # @alias + "@" + @mask + "." + @dotcom
+
+    if email.length > 15
+      @alias + "@" + @name[0...3] + "**" + "." + @dotcom
+    else
+      @alias + "@" + @name + "." + @dotcom
+    end
+  end
 	
 end
