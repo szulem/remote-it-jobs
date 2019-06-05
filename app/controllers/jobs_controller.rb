@@ -6,7 +6,8 @@ class JobsController < ApplicationController
   before_action :job_owner, only: %i[edit update destroy]
 
   def index
-    @jobs = Job.all.order('created_at DESC').page params[:page]
+    @jobs = Job.where(status: true).order('created_at DESC').page(params[:page])
+    @jobs_user = Job.where(status: true, user: current_user).order('created_at DESC').page(params[:page])
   end
 
   def show
@@ -50,7 +51,7 @@ class JobsController < ApplicationController
 
   def job_params
     # params.require(:job).permit(:title, :category_id)
-    params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_logo, :status, :user_id)
+    params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_size, :company_logo, :status, :promo, :user_id)
   end
 
   def set_job
