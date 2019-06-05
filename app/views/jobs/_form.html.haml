@@ -1,7 +1,8 @@
 = simple_form_for @job do |f|
   - if current_user.admin?
     .form-group
-      = f.input :status
+      = f.input :status, label: "Active"
+      = f.input :promo
   .form-group
     = f.input :title, placeholder: "Junior Ruby on Rails Developer"
   .form-group
@@ -26,6 +27,8 @@
   / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
   .form-group
     = f.input :company_name, placeholder: "Your company"
+  .form-group
+    = f.input :company_size, placeholder: "10 - 20"
   .form-group
     = f.input :company_logo, as: :file
     = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
