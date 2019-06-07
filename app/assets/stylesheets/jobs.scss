@@ -33,16 +33,20 @@ h3.sidebar {
 }
 
 .job-item {
-    /*width: 100%;*/
-    padding: 15px;
-    border-radius: 5px;
-    margin: 0 0 10px 0;
-    -webkit-transition: ease 0.2s;
-    transition: ease 0.2s;
-    border: 2px solid #F4F4F4;
-    background-color: #f9f9f9;
-    position: relative;
-    /*height: 12rem;*/
+  /*width: 100%;*/
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+  -webkit-transition: ease 0.2s;
+  transition: ease 0.2s;
+  border: 2px solid #F4F4F4;
+  background-color: #f9f9f9;
+  position: relative;
+  /*height: 12rem;*/
+}
+
+.promo {
+  background-color: rgba(255,210,0,0.3);
 }
 
 .center {
@@ -65,6 +69,24 @@ h3.sidebar {
 h4.bolded {
   font-weight: bold;
 }
+
+.new-offer, .promo-offer {
+  background-color: #ffd400;
+  display: inline-block;
+  padding: .1em .4em .3em;
+  font-size: 65%;
+  font-weight: 600;
+  line-height: 1;
+  color: #000000;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: .25em;
+}
+
+
+
+
 
 
 @media screen and (max-width: 768px) {
