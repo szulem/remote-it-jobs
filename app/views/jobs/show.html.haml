@@ -48,4 +48,7 @@
           %li.list-group-item
             = link_to "#{f.title}", job_path(f)
 
-= link_to "<-- Home", root_path
+%a{href: "#{root_path}"}
+  %button.btn.btn-default{type: "button"}
+    %span.glyphicon.glyphicon-home
+    Home
