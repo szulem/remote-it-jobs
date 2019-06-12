@@ -1,12 +1,15 @@
-
-%h2= @user.email
+%h2.centered= @user.email
 
 - if current_user.admin?
   - @jobs_all.each do |f|
-    = render partial: '/common_files/jobs-list', locals: { f: f }
-- elsif current_user == @user
-  - @jobs.each do |f|
-    = render partial: '/common_files/jobs-list', locals: { f: f }
+    = render partial: '/common_files/jobs-list-admin', locals: { f: f }
+- elsif @user == current_user
+  - if @jobs.present?
+    - @jobs.each do |f|
+      = render partial: '/common_files/jobs-list-user', locals: { f: f }
+  - else
+    %p.centered
+      = link_to "+ Add your first job offer", new_job_path, class: 'btn btn-success btn'
 - else
   " "
 / - else
