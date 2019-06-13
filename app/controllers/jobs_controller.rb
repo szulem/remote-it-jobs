@@ -8,6 +8,7 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.where(status: true).order('created_at DESC').page(params[:page])
     @jobs_user = Job.where(status: true, user: current_user).order('created_at DESC').page(params[:page])
+    @categories = Category.all.order('created_at ASC')
   end
 
   def show
