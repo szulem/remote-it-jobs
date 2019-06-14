@@ -4,6 +4,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.friendly.find(params[:id])
-    @category_jobs = @category.jobs.order('created_at DESC')
+    @category_jobs = @category.jobs.where(status: true).order('created_at DESC').page(params[:page]).per(10)
   end
 end

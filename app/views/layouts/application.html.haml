@@ -27,7 +27,7 @@
                   = link_to (f.name), category_path(f)
             %ul.nav.navbar-nav.navbar-right
               %li{class: "#{current_class?(new_job_path)}"}
-                = link_to "+ Post a job", new_job_path
+                = link_to "+ Post a job", new_job_path, class: "bolded"
               - if !user_signed_in?
                 %li{class: "#{current_class?(new_user_session_path)}"}
                   = link_to "Log in", new_user_session_path

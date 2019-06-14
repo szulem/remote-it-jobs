@@ -1,5 +1,8 @@
 - provide(:title, @category.name + " job offers ")
-%h2.centered= @category.name + " jobs"
+%h2.centered= @category.name + " remote jobs (#{@category.jobs.count})"
 
 - @category_jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
+
+.col-centered
+  = paginate @category_jobs

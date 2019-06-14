@@ -20,6 +20,10 @@ body {
   padding-top: 70px; 
 }
 
+h2.home {
+  font-size: 1.7em;
+}
+
 .footer {
   position: relative;
   right: 0;
@@ -46,4 +50,8 @@ body {
 
 .righted {
   text-align: right;
+}
+
+.bolded {
+  font-weight: bold;
 }
