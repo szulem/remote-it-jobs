@@ -27,7 +27,7 @@ class JobsController < ApplicationController
       redirect_to @job
     else
       flash[:error] = "You have to fill all required fields."
-      render 'new'
+      redirect_to new_job_path
     end
   end
 
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
       redirect_to @job, notice: "The job was successfully updated."
     else
       flash[:error] = "You have to fill all required fields."
-      render 'edit'
+      redirect_to edit_job_path(@job)
     end
   end
 
@@ -51,8 +51,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    # params.require(:job).permit(:title, :category_id)
-    params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_size, :company_logo, :status, :promo, :user_id)
+    params.require(:job).permit(:title, :description, :email, :url, :salary_from, :salary_to, :salary_per, :currency, :category_id, :company_name, :company_size, :company_logo, :status, :promo, :location_requirement, :user_id)
   end
 
   def set_job
