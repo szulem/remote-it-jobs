@@ -55,5 +55,15 @@ module ApplicationHelper
       @alias + "@" + @name + "." + @dotcom
     end
   end
+
+  def is_active_count?(jobs)
+    active_jobs = []
+    jobs.each do |f|
+      if f.status == true
+        active_jobs << f
+      end
+    end
+    active_jobs
+  end
 	
 end
