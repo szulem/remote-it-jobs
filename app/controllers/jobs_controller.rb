@@ -27,7 +27,7 @@ class JobsController < ApplicationController
       redirect_to @job
     else
       flash[:error] = "You have to fill all required fields."
-      redirect_to new_job_path
+      render 'new'
     end
   end
 
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
       redirect_to @job, notice: "The job was successfully updated."
     else
       flash[:error] = "You have to fill all required fields."
-      redirect_to edit_job_path(@job)
+      render 'edit'
     end
   end
 

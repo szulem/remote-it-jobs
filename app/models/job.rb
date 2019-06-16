@@ -13,6 +13,8 @@ class Job < ApplicationRecord
   validates :currency, presence: true
   validates :category_id, presence: true
   validates :company_name, presence: true
+  validates :company_size, presence: true
+  validates :location_requirement, presence: true
   # validates :company_logo, presence: true
 
   has_attached_file :company_logo, styles: { medium: "234x300>", thumb: "100x100>", mini: "80x40>", micro: "50x50>" }, default_url: "/images/:style/missing.png"
