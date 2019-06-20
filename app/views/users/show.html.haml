@@ -1,4 +1,5 @@
 %h2.centered= @user.email
+%p.centered= link_to "Edit your profile", edit_user_registration_path
 
 - if current_user.admin?
   - @jobs_all.each do |f|

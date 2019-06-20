@@ -7,51 +7,30 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Lato&display=swap'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.header
       %nav.navbar.navbar-default.navbar-fixed-top.shadow-border
         .container
           .navbar-header
-            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", type: "button"}
               %span.sr-only Toggle navigation
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
             .navbar-brand
               = link_to image_tag("remojobs_30.png", alt: "Remote IT jobs"), root_path
-          #bs-example-navbar-collapse-1.collapse.navbar-collapse
-            %ul.nav.navbar-nav
-              - Category.all.each do |f|
-                %li{class: "#{current_class?(category_path(f))}"}
-                  = link_to (f.name), category_path(f)
-            %ul.nav.navbar-nav.navbar-right
-              %li{class: "#{current_class?(new_job_path)}"}
-                = link_to "+ Post a job", new_job_path, class: "bolded"
-              - if !user_signed_in?
-                %li{class: "#{current_class?(new_user_session_path)}"}
-                  = link_to "Log in", new_user_session_path
-                %li{class: "#{current_class?(new_user_registration_path)}"}
-                  = link_to "Register", new_user_registration_path
-              - else
-                - if current_user.admin?
-                  %li.dropdown
-                    %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", href: "", role: "button"}
-                      %strong
-                        %span.glyphicon.glyphicon-user
-                        Admin
-                      %span.caret
-                    %ul.dropdown-menu
-                      %li
-                        = link_to "New jobs (#{Job.where(status: false).count})", new_jobs_path
-                        = link_to "All jobs (#{Job.all.count})", user_path(current_user)
-                        = link_to "List of users (#{User.all.count})", admin123_path
-                - elsif !current_user.admin? && current_user.jobs.count > 0
-                  %li{class: "#{current_class?(user_path(current_user))}"}
-                    = link_to "<span class='glyphicon glyphicon-user'></span> My job offers <span class='badge'>#{current_user.jobs.count}</span>".html_safe, user_path(current_user)
-                - else
-                  %li= link_to "<span class='glyphicon glyphicon-user'></span> My job offers".html_safe, user_path(current_user)
-                %li= link_to "Logout", destroy_user_session_path, method: :delete
+          #navbar.collapse.navbar-collapse
+            - if is_mobile_device? || is_tablet_device?
+              .col-xs-6
+                = render partial: '/common_files/menu-categories'
+              .col-xs-6
+                = render partial: '/common_files/menu-right'
+            - else
+              = render partial: '/common_files/menu-categories'
+              = render partial: '/common_files/menu-right'
+                
     .container
       - flash.each do |key, value|
         %div{class: "#{flash_class(key)}"}

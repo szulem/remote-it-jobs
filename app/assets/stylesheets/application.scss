@@ -21,7 +21,13 @@ body {
 }
 
 h2.home {
-  font-size: 1.7em;
+  font-size: 1.6em;
+  font-family: 'Lato', sans-serif;
+  /*font-weight: bold;*/
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
 }
 
 .footer {
@@ -54,4 +60,22 @@ h2.home {
 
 .bolded {
   font-weight: bold;
+}
+.invalid-feedback {
+  color: #f23030;
+}
+
+.navbar-brand {
+  padding: 10px 15px !important;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+  max-height: 380px !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    padding: 12px 15px !important;
+  }
 }

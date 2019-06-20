@@ -1,21 +1,44 @@
 - if @job.company_name.present?
   - provide(:title, @job.title + " @ " + @job.company_name)
 .row.no-margin
-  .col-md-8
-    %h1= @job.title
-    %ol.breadcrumb
-      %li
-        %span.glyphicon.glyphicon-calendar{"aria-hidden" => "true"}
-        = @job.created_at.strftime("%d/%m")
-      %li= @job.company_name
-      %li= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + " / " + @job.salary_per + "</strong>".html_safe
-      / %li= mail_to @job.email
-      %li= link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
+  .col-md-9
+    %h2
+      %b= @job.title
+    - if is_mobile_device? || is_tablet_device?
+      .thumbnail.centered
+        .caption
+          - if @job.company_logo.present?
+            = image_tag("#{@job.company_logo.url(:thumb)}", alt: "#{@job.company_name}")
+          - else
+            = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
+          %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> + VAT per ".html_safe + @job.salary_per + "</small>".html_safe
+          = link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
+          - if user_signed_in?
+            - if @job.user_id == current_user.id || current_user.admin?
+              = link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning btn-xs'
+              = link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
 
-      - if user_signed_in?
-        - if @job.user_id == current_user.id || current_user.admin?
-          = link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning btn-xs'
-          = link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+    .col-md-12
+      .offer-head.no-margin
+        .row
+          .col-md-2.col-xs-3
+            = "Posted: "
+            %br
+            %b= @job.created_at.strftime("%b %d")
+          .col-md-3.col-xs-4
+            = "Company: "
+            %br
+            %b= @job.company_name
+          / %li= mail_to @job.email
+          .col-md-3.hidden-xs
+            = "Company size: "
+            %br
+            %b= @job.company_size.to_s + " people"
+          .col-md-4.col-xs-5
+            = "Location requirement: "
+            %br
+            %b= @job.location_requirement.to_s
+          / %li= mail_to @job.email
 
     %p= @job.description.html_safe if @job.description.present?
     %br
@@ -24,21 +47,25 @@
     %br
     %br
     %br
-  .col-md-1
-    = new_offer?(@job)
+  / .col-md-1
+  /   = new_offer?(@job)
   .col-md-3
-    .thumbnail
-      .caption
-        - if @job.company_logo.present?
-          = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
-        - else
-          = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
-        %h3= @job.company_name
-        %p= mail_to @job.email
-        %p= "Company size: " + @job.company_size.to_s
-
-    %br
-    %br
+    .offer-right
+      - if is_mobile_device? || is_tablet_device?
+        = ""
+      - else
+        .thumbnail
+          .caption
+            - if @job.company_logo.present?
+              = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
+            - else
+              = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
+            %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> per ".html_safe + @job.salary_per + "</small>".html_safe
+            = link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
+            - if user_signed_in?
+              - if @job.user_id == current_user.id || current_user.admin?
+                = link_to 'Edit', edit_job_path(@job), class: 'btn btn-warning btn-xs'
+                = link_to 'Delete', job_path(@job), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
     
     .panel.panel-default
       .panel-body
