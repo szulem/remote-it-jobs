@@ -1,37 +1,45 @@
-.row.job-item.center
-  - if f.company_logo.present?
-    .col-md-1.first-col
-      - if is_mobile_device? || is_tablet_device?
-        = link_to image_tag("#{f.company_logo.url(:micro)}"), job_path(f)
-      - else
-        = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
-  - else
-    .col-md-1.first-col
-      = link_to image_tag("https://dummyimage.com/60x40/f4f4f4/000000.png&text=#{instead_of_logo(f.company_name)}"), job_path(f)
-  / .col-md-1
-  .col-md-6
-    %h4.bolded
-      = link_to "#{f.title}", job_path(f)
-      = new_offer?(f)
-    = f.company_name
-  .col-md-2.hidden-xs
-    %h4.bolded Salary
-    = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
-
-  - if user_signed_in? && current_user.admin?
-    .col-md-2.hidden-xs
-      - if f.user.present?
-        = link_to "#{f.user.email}", job_path(f), class: 'btn btn-default btn-xs admin-buttons'
-      - else
-        = link_to "no user", root_path, class: 'btn btn-warning btn-xs admin-buttons'
-      %br
-      = "Days: "
-      = days_from_start_rounded(f.created_at)
-  - else
-    .col-md-1.hidden-xs
-
-  .col-md-1.hidden-xs
-    - if user_signed_in? && current_page?(user_path(current_user))
-      = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+- if f.status?
+  .row.job-item.center{class: ("promo" if f.promo?)}
+    - if f.company_logo.present?
+      .col-md-1.first-col
+        - if is_mobile_device? || is_tablet_device?
+          = link_to image_tag("#{f.company_logo.url(:micro)}"), job_path(f)
+        - else
+          = link_to image_tag("#{f.company_logo.url(:mini)}"), job_path(f)
     - else
-      = link_to "Apply", job_path(f), class: 'btn btn-success'
+      .col-md-1.first-col
+        = link_to image_tag("https://dummyimage.com/60x40/f4f4f4/000000.png&text=#{instead_of_logo(f.company_name)}"), job_path(f)
+
+    .col-md-6
+      %h4.bolded
+        = link_to "#{f.title}", job_path(f)
+        = new_offer?(f)
+      = f.company_name
+    .col-md-3.hidden-xs
+      %h4.bolded Salary
+      = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
+
+    - if user_signed_in? && current_user.admin?
+      .col-md-2.hidden-xs
+        - if f.user.present?
+          = link_to "#{email_stars(f.user.email)}", job_path(f), title: "#{f.user.email}"
+        - else
+          = link_to "<strong>no user</strong>".html_safe, root_path, class: 'btn btn-default btn-xs admin-buttons'
+        %br
+        = "Days: #{days_from_start_rounded(f.created_at)}"
+        %br
+        - if f.status?
+          = link_to "active", edit_job_path(f), class: 'btn btn-primary btn-xs admin-buttons'
+        - else
+          = link_to "inactive", edit_job_path(f), class: 'btn btn-danger btn-xs admin-buttons'
+        - if f.promo?
+          = link_to "promo", edit_job_path(f), class: 'btn promo-offer btn-xs admin-buttons'
+
+    - else
+      .col-md-1.hidden-xs
+
+    .col-md-1.hidden-xs
+      - if user_signed_in? && current_page?(user_path(current_user))
+        = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+      - else
+        = link_to "Apply", job_path(f), class: 'btn btn-success'
