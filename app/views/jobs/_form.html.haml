@@ -30,7 +30,7 @@
   .form-group
     = f.input :company_size, placeholder: "10 - 20"
   .form-group
-    = f.input :location_requirement, placeholder: "e.g. Anywhere in the world, Europe, Poland, US only"
+    = f.input :location_requirement, placeholder: "e.g. Global, Europe, Poland, US only"
   .form-group
     = f.input :company_logo, as: :file
     = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
