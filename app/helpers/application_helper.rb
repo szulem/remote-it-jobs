@@ -65,5 +65,13 @@ module ApplicationHelper
     end
     active_jobs
   end
+
+  def job_status?(job)
+    if job.status?
+      "<span class='label label-success'>active</span>".html_safe
+    else
+      "<span class='label label-default'>inactive</span>".html_safe
+    end
+  end
 	
 end
