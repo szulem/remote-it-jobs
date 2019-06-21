@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_145048) do
+ActiveRecord::Schema.define(version: 2019_06_21_124100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_145048) do
     t.boolean "promo", default: false
     t.string "company_size"
     t.string "location_requirement"
+    t.datetime "activated_at"
     t.index ["category_id"], name: "index_jobs_on_category_id"
     t.index ["slug"], name: "index_jobs_on_slug", unique: true
     t.index ["user_id"], name: "index_jobs_on_user_id"
