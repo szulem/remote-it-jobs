@@ -1,4 +1,6 @@
 class Job < ApplicationRecord
+  after_update :update_activated_at
+
   belongs_to :category
   belongs_to :user
 
@@ -37,7 +39,13 @@ class Job < ApplicationRecord
 
   # it change the job's url after update
   def should_generate_new_friendly_id?
-    company_name_changed? || title_changed? || super
+    company_name_changed? || title_changed? || status_changed? || super
+  end
+
+  def update_activated_at
+    if status_before_last_save == false
+      update_attributes(activated_at: Time.now)
+    end
   end
 
 end
