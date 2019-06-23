@@ -42,6 +42,7 @@ class Job < ApplicationRecord
     company_name_changed? || title_changed? || status_changed? || super
   end
 
+  # set actual time when job status changes to true
   def update_activated_at
     if status_before_last_save == false
       update_attributes(activated_at: Time.now)

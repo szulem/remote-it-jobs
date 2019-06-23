@@ -4,11 +4,12 @@
   .col-md-9
     %h2
       %b= @job.title
+      = new_offer?(@job)
     - if is_mobile_device? || is_tablet_device?
       .thumbnail.centered
         .caption
           - if @job.company_logo.present?
-            = image_tag("#{@job.company_logo.url(:thumb)}", alt: "#{@job.company_name}")
+            = image_tag("#{@job.company_logo.url(:thumb)}", alt: "#{@job.company_name}", class: "center-image")
           - else
             = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
           %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> + VAT per ".html_safe + @job.salary_per + "</small>".html_safe
@@ -57,7 +58,7 @@
         .thumbnail
           .caption
             - if @job.company_logo.present?
-              = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}")
+              = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}", class: "center-image")
             - else
               = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
             %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> per ".html_safe + @job.salary_per + "</small>".html_safe
