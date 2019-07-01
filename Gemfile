@@ -24,6 +24,7 @@ gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem 'ckeditor'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'mobile-fu'
+gem 'bundler', '~> 2.0', '>= 2.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
