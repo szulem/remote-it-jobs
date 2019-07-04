@@ -25,7 +25,7 @@ gem 'ckeditor'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'mobile-fu'
 gem 'bundler', '~> 2.0', '>= 2.0.1'
-gem 'aws-sdk-s3', '~> 1.45'
+gem 'aws-sdk'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 # Use Redis adapter to run Action Cable in production
