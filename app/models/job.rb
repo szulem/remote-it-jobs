@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  after_update :update_activated_at
+  # after_update :update_activated_at
 
   belongs_to :category
   belongs_to :user
