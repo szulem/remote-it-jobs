@@ -72,7 +72,7 @@
       .panel-body
         %h3.sidebar= "Other #{@job.category.name} jobs"
       %ul.list-group
-        - @jobs_category.each do |f|
+        - @jobs_category.drop(1).each do |f|
           %li.list-group-item
             = link_to "#{f.title}", job_path(f)
 
