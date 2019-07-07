@@ -12,7 +12,7 @@
 - @categories.each do |cat|
   .jobs-group
     %h2.home= cat.name + " remote jobs"
-    - cat.jobs.order('created_at DESC').take(5).each do |f|
+    - cat.jobs.where(status: true).order('created_at DESC').take(5).each do |f|
       = render partial: '/common_files/jobs-list', locals: { f: f }
     %p.righted
       = link_to "see more #{cat.name.downcase} jobs (#{is_active_count?(cat.jobs).count}) <span class='glyphicon glyphicon-chevron-right'></span>".html_safe, category_path(cat), class: "btn btn-default"
