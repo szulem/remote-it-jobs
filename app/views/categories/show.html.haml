@@ -1,5 +1,5 @@
 - provide(:title, @category.name + " remote jobs ")
-%h2.centered= @category.name + " remote jobs (#{@category.jobs.count})"
+%h2.centered= @category.name + " remote jobs (#{is_active_count?(@category.jobs).count})"
 
 - @category_jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
