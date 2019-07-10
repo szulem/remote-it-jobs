@@ -20,7 +20,7 @@
         %h4.bolded
           = link_to "#{f.title}", job_path(f)
           = new_offer?(f)
-        = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?    
+        = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?    
       - else
         %h4.bolded
           = link_to "#{f.title}", job_path(f)
@@ -29,7 +29,7 @@
 
     .col-md-3.hidden-xs
       %h4.bolded Salary
-      = f.salary_from.to_s + " - " + f.salary_to.to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
+      = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
 
     - if user_signed_in? && current_user.admin?
       .col-md-2.hidden-xs

@@ -73,5 +73,9 @@ module ApplicationHelper
       "<span class='label label-default'>inactive</span>".html_safe
     end
   end
+
+  def salary_space(salary)
+    number_to_currency(salary, delimiter: " ", precision: 0, unit: "")
+  end
 	
 end

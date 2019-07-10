@@ -12,7 +12,7 @@
             = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}", class: "center-image")
           - else
             = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
-          %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> + VAT per ".html_safe + @job.salary_per + "</small>".html_safe
+          %h3= "<strong>".html_safe + salary_space(@job.salary_from).to_s + " - " + salary_space(@job.salary_to).to_s + " " + @job.currency.to_s + "</strong> <br> <small> + VAT per ".html_safe + @job.salary_per + "</small>".html_safe
           = link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
           - if user_signed_in?
             - if @job.user_id == current_user.id || current_user.admin?
@@ -61,7 +61,7 @@
               = image_tag("#{@job.company_logo.url(:medium)}", alt: "#{@job.company_name}", class: "center-image")
             - else
               = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
-            %h3= "<strong>".html_safe + @job.salary_from.to_s + " - " + @job.salary_to.to_s + " " + @job.currency.to_s + "</strong> <br> <small> per ".html_safe + @job.salary_per + "</small>".html_safe
+            %h3= "<strong>".html_safe + salary_space(@job.salary_from).to_s + " - " + salary_space(@job.salary_to).to_s + " " + @job.currency.to_s + "</strong> <br> <small> + VAT per ".html_safe + @job.salary_per + "</small>".html_safe
             = link_to "Apply for this position", @job.url, class: 'btn btn-success btn-xs', target: "_blank"
             - if user_signed_in?
               - if @job.user_id == current_user.id || current_user.admin?
