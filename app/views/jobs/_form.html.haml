@@ -13,9 +13,9 @@
   .form-group
     .row-form
       .col-md-3
-        = f.input :salary_from, label: "Salary from", placeholder: "2500"
+        = f.input :salary_from, label: "Salary from (net)", placeholder: "2500"
       .col-md-3
-        = f.input :salary_to, label: "Salary to", placeholder: "8500"
+        = f.input :salary_to, label: "Salary to (net)", placeholder: "8500"
       .col-md-3
         = f.input :currency, as: :select, collection: ["PLN", "EUR", "USD", "GBP"], include_blank: true, selected: @job.currency
       .col-md-3
