@@ -23,7 +23,7 @@ class JobsController < ApplicationController
   def create
     @job = current_user.jobs.new(job_params)
     if @job.save
-      flash[:success] = "Successfully added a new Job."
+      flash[:success] = "You've successfully added a new job. It will be activated after checking."
       redirect_to @job
     else
       flash[:error] = "You have to fill all required fields."
