@@ -1,14 +1,3 @@
-/ %section.cd-intro
-/   %h1.cd-headline.clip.is-full-width
-/     %span= "We have #{Job.all.count}"
-/     %span.cd-words-wrapper
-/       %b.is-visible backend
-/       %b frontend
-/       %b devops
-/       %b marketing
-/       %b design
-/     %span= "remote jobs"
-
 - @categories.each do |cat|
   .jobs-group
     %h2.home= cat.name + " remote jobs"
