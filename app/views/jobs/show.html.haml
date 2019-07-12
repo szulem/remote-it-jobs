@@ -74,7 +74,9 @@
       %ul.list-group
         - @jobs_category.drop(1).each do |f|
           %li.list-group-item
-            = link_to "#{f.title}", job_path(f)
+            %b= link_to "#{f.title}", job_path(f)
+            %br
+            = f.company_name
 
 %a{href: "#{root_path}"}
   %button.btn.btn-default{type: "button"}
