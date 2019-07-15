@@ -11,7 +11,7 @@
       your login is: <%= @user.email %><br>
     </p>
     <p>
-      To login to the Remojobs, just follow this link: <a href="#{@url}" target="_blank"><%= @url %></a>
+      To login to the Remojobs, just follow this link: <%= link_to @url, @url, target: "_blank" %>
     </p>
     <p>Thanks for joining and have a great day!</p>
     <p>If you have any questions, just send us an email to <a href="mailto:hello@remojobs.com">hello@remojobs.com</a></p> 
