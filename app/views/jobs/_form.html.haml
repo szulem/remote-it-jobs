@@ -21,14 +21,14 @@
       .col-md-3
         = f.input :salary_per, as: :select, collection: ["hour", "day", "week", "month", "year"], include_blank: true, selected: @job.salary_per
   .form-group
+    = f.input :company_name, placeholder: "Your company"
+  .form-group
+    = f.input :company_size, placeholder: "e.g. 5, 10-20, 50+, 200+"
+  .form-group
     = f.input :email, placeholder: "e.g. john@company.com"
   .form-group
     = f.input :url, placeholder: "e.g. www.yourcompany.com or url of the job offer"
   / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
-  .form-group
-    = f.input :company_name, placeholder: "Your company"
-  .form-group
-    = f.input :company_size, placeholder: "10 - 20"
   .form-group
     = f.input :location_requirement, placeholder: "e.g. Global, Europe, Poland, US only"
   .form-group
