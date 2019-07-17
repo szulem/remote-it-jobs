@@ -77,5 +77,9 @@ module ApplicationHelper
   def salary_space(salary)
     number_to_currency(salary, delimiter: " ", precision: 0, unit: "")
   end
+
+  def shorter_salary(salary)
+    number_to_human(salary, units: {thousand: "K"}, format: '%n%u', precision: 4)
+  end
 	
 end

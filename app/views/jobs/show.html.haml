@@ -77,6 +77,8 @@
             %b= link_to "#{f.title}", job_path(f)
             %br
             = f.company_name
+            %br
+            = shorter_salary(f.salary_from).to_s + " - " + shorter_salary(f.salary_to).to_s + " " + f.currency.to_s + " / " + f.salary_per
 
 %a{href: "#{root_path}"}
   %button.btn.btn-default{type: "button"}
