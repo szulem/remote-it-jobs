@@ -21,6 +21,11 @@ class UsersController < ApplicationController
   end
 
   def newjobs
-    @jobs_inactive = Job.where(status: false).order('created_at DESC')
+    if current_user.admin?
+      @jobs_inactive = Job.where(status: false).order('created_at DESC')
+    else
+      redirect_to root_path
+    end
   end
+  
 end
