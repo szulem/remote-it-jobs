@@ -4,13 +4,13 @@
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title= full_title(yield(:title))
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
-    = render '/common_files/ga'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag asset_path('favicon.png')
+    = render '/common_files/ga'
   %body
     %header.header
       %nav.navbar.navbar-default.navbar-fixed-top.shadow-border
