@@ -1,15 +1,21 @@
 = simple_form_for @job do |f|
   - if current_user.admin?
     .form-group
-      = f.input :status, label: "Active"
-      = f.input :promo
+      .row-form
+        .col-md-6
+          = f.input :status, label: "Active"
+        .col-md-6
+          = f.input :promo
   .form-group
-    = f.input :title, placeholder: "Junior Ruby on Rails Developer"
+    .row-form
+      .col-md-6
+        = f.input :title, placeholder: "Junior Ruby on Rails Developer"
+      .col-md-6
+        = f.association :category
+        / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
   .form-group
     = f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
     = javascript_include_tag Ckeditor.cdn_url
-  .form-group
-    = f.association :category
   .form-group
     .row-form
       .col-md-3
@@ -21,16 +27,19 @@
       .col-md-3
         = f.input :salary_per, as: :select, collection: ["hour", "day", "week", "month", "year"], include_blank: true, selected: @job.salary_per
   .form-group
-    = f.input :company_name, placeholder: "Your company"
+    .row-form
+      .col-md-6
+        = f.input :company_name, placeholder: "Your company"
+      .col-md-6
+        = f.input :company_size, placeholder: "e.g. 5, 10-20, 50+, 200+"
   .form-group
-    = f.input :company_size, placeholder: "e.g. 5, 10-20, 50+, 200+"
+    .row-form
+      .col-md-6
+        = f.input :email, placeholder: "e.g. jobs@company.com"
+      .col-md-6
+        = f.input :url, placeholder: "e.g. www.yourcompany.com or url of the job offer"
   .form-group
-    = f.input :email, placeholder: "e.g. john@company.com"
-  .form-group
-    = f.input :url, placeholder: "e.g. www.yourcompany.com or url of the job offer"
-  / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
-  .form-group
-    = f.input :location_requirement, placeholder: "e.g. Global, Europe, Poland, US only"
+    = f.input :location_requirement, placeholder: "e.g. Global, USA, Europe, Poland, Anywhere"
   .form-group
     = f.input :company_logo, as: :file
     = image_tag(@job.company_logo.url(:thumb)) if @job.company_logo.present?
