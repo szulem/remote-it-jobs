@@ -50,7 +50,7 @@ module ApplicationHelper
     # @alias + "@" + @mask + "." + @dotcom
 
     if email.length > 15
-      @alias + "@" + @name[0...3] + "**" + "." + @dotcom
+      @alias[0...2] + "@" + @name[0...3] + "**" + "." + @dotcom
     else
       @alias + "@" + @name + "." + @dotcom
     end
