@@ -1,5 +1,8 @@
-%jumbotron
+%container
   %p.centered
-    = image_tag("404.png")
+    - if is_mobile_device? || is_tablet_device?
+      = image_tag("404_mobile.png")
+    - else
+      = image_tag("404.png")
   %h3.centered
     = link_to "Go to homepage", root_path
