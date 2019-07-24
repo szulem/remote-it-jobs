@@ -3,7 +3,8 @@
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title= full_title(yield(:title))
-    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+    %meta{name: "description", content: "#{full_description(yield(:description))}"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'

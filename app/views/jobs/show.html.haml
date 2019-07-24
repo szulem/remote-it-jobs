@@ -1,5 +1,5 @@
-- if @job.company_name.present?
-  - provide(:title, @job.title + " - remote @ " + @job.company_name)
+- provide(:title, @job.title + " - remote @ " + @job.company_name)
+- provide(:description, "We are " + @job.company_name + " and we are looking for a candidate to work as remote " + @job.title + " in our company. At Remojobs you can find more remote job offers at " + @job.company_name + " and many other companies.")
 .row.no-margin
   .col-md-9
     %h2

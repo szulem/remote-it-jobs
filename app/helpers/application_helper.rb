@@ -24,6 +24,16 @@ module ApplicationHelper
     end
   end
 
+  # Returns the full description on a per-page basis
+  def full_description(page_description = '')
+    base_description = "Remojobs is the best way to find remote jobs in IT: Programming, Design, DevOps, Project Manager careers and more other remote work opportunities at innovative companies."
+    if page_description.empty?
+      base_description
+    else
+      page_description
+    end
+  end
+
   # for "active" class in menu
   def current_class?(test_path)
     return 'active' if request.path == test_path
