@@ -27,7 +27,7 @@ gem 'mobile-fu'
 gem 'bundler', '~> 2.0', '>= 2.0.1'
 gem 'aws-sdk'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
