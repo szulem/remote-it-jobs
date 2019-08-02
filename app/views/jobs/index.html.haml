@@ -1,3 +1,14 @@
+.homepage-count.centered
+  %h1.counter
+    = "We have "
+    %b
+      = Job.all.count    
+    - if is_mobile_device?
+      %br
+    - else
+      = ""
+    = " remote jobs"
+
 - @categories.each do |cat|
   .jobs-group
     %h2.home= cat.name + " remote jobs"
@@ -5,6 +16,3 @@
       = render partial: '/common_files/jobs-list', locals: { f: f }
     %p.righted
       = link_to "all #{cat.name.downcase} jobs (#{is_active_count?(cat.jobs).count}) <span class='glyphicon glyphicon-chevron-right'></span>".html_safe, category_path(cat), class: "btn btn-default"
-
-  / .col-centered
-  /   = paginate @jobs
