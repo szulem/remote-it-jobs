@@ -18,12 +18,12 @@
         %b
           = f.company_name
         %h4.bolded
-          = link_to "#{f.title}", job_path(f)
+          = link_to "#{f.title}", job_path(f), title: "#{f.title} at #{f.company_name}"
           = new_offer?(f)
         = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?    
       - else
         %h4.bolded
-          = link_to "#{f.title}", job_path(f)
+          = link_to "#{f.title}", job_path(f), title: "#{f.title} at #{f.company_name}"
           = new_offer?(f)
         = f.company_name
 
