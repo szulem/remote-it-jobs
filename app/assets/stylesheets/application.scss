@@ -20,14 +20,30 @@ body {
   padding-top: 70px; 
 }
 
-h2.home {
-  font-size: 1.6em;
+h1, h2, h3 {
   font-family: 'Quicksand', sans-serif;
-  /*font-weight: bold;*/
 }
 
-h2 {
-  font-family: 'Quicksand', sans-serif;
+h1.counter {
+  font-size: 2.4em;
+}
+
+h1.category {
+  font-size: 2.2em;
+}
+
+h1.job-title {
+  font-size: 2.4em;
+  font-weight: bold;
+}
+
+h2.home {
+  font-size: 1.6em;
+}
+
+h3.job-title {
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
 .footer {
@@ -76,6 +92,12 @@ h2 {
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   max-height: 380px !important;
+}
+
+.homepage-count {
+  padding-bottom: 9px;
+  margin: 20px 0 20px;
+  border-bottom: 1px solid #eeeeee;
 }
 
 
