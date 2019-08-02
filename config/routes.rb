@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   get 'categories/index'
   get 'categories/show'
 
-  get 'static_pages/about'
-  get 'static_pages/terms'
-  get 'static_pages/privacy'
-  get 'static_pages/contact'  
+  get '/about', to: 'static_pages#about'
+  get '/terms', to: 'static_pages#terms'
+  get '/privacy', to: 'static_pages#privacy'
+  get '/contact', to: 'static_pages#contact'
 
   mount Ckeditor::Engine => '/ckeditor'
   # get '/users/:id' => 'users#show', as: :profile
