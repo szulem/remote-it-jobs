@@ -2,8 +2,8 @@
 - provide(:description, "We are " + @job.company_name + " and we are looking for a candidate to work as remote " + @job.title + " in our company. At Remojobs you can find more remote job offers at " + @job.company_name + " and many other companies.")
 .row.no-margin
   .col-md-9
-    %h2
-      %b= @job.title
+    %h1.job-title
+      = @job.title
       = new_offer?(@job)
     - if is_mobile_device? || is_tablet_device?
       .thumbnail.centered
@@ -70,7 +70,7 @@
     
     .panel.panel-default
       .panel-body
-        %h3.sidebar= "Other #{@job.category.name} jobs"
+        %h3.sidebar.bolded= "Other #{@job.category.name} jobs"
       %ul.list-group
         - @jobs_category.drop(1).each do |f|
           %li.list-group-item
