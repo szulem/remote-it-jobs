@@ -11,7 +11,7 @@
 
 - @categories.each do |cat|
   .jobs-group
-    %h2.home= cat.name + " remote jobs"
+    %h2.bolded.home= cat.name + " remote jobs"
     - cat.jobs.where(status: true).order('created_at DESC').take(5).each do |f|
       = render partial: '/common_files/jobs-list', locals: { f: f }
     %p.righted
