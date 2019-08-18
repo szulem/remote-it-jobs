@@ -72,7 +72,7 @@
       .panel-body
         %h3.sidebar.bolded= "Other #{@job.category.name} jobs"
       %ul.list-group
-        - @jobs_category.each do |f|
+        - @jobs_category.take(10).each do |f|
           %li.list-group-item
             %b= link_to "#{f.title}", job_path(f)
             %br
