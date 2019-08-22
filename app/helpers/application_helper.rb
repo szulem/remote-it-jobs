@@ -89,7 +89,7 @@ module ApplicationHelper
   end
 
   def shorter_salary(salary)
-    number_to_human(salary, units: {thousand: "K"}, format: '%n%u', precision: 4)
+    number_to_human(salary, units: {thousand: "k"}, format: '%n%u', precision: 4)
   end
 	
 end
