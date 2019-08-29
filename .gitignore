@@ -29,5 +29,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-/app/assets/images/mszul.jpg
