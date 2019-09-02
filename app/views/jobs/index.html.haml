@@ -15,4 +15,4 @@
     - cat.jobs.where(status: true).order('created_at DESC').take(5).each do |f|
       = render partial: '/common_files/jobs-list', locals: { f: f }
     %p.righted
-      = link_to "all #{cat.name.downcase} remote jobs (#{is_active_count?(cat.jobs).count}) <span class='glyphicon glyphicon-chevron-right'></span>".html_safe, category_path(cat), class: "btn btn-default"
+      = link_to "all #{cat.name.downcase} remote jobs (#{is_active_count?(cat.jobs).count}) <span class='glyphicon glyphicon-chevron-right'></span>".html_safe, category_path(cat), title: "#{cat.name.downcase} remote jobs", class: "btn btn-default"
