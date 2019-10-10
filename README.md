@@ -1,4 +1,3 @@
 # README
 
-Remote IT job board - Portal pracy zdalnej dla programistów
-https://remojobs.com
+Remote IT job board - Portal z ofertami pracy zdalnej dla programistów https://remojobs.com
