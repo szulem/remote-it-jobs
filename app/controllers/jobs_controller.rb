@@ -35,6 +35,10 @@ class JobsController < ApplicationController
   end
 
   def update
+    # Ustawia datę aktywacji tylko jeśli edytuje się już aktywną ofertę
+    # if @job.status == true
+    #   @job.activated_at = DateTime.now
+    # end
     if @job.update(job_params)
       redirect_to @job, notice: "The job was successfully updated."
     else
