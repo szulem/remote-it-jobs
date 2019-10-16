@@ -1094,7 +1094,7 @@ DEPENDENCIES
   sassc-rails (>= 2.1.0)
   selenium-webdriver
   simple_form (~> 4.1)
-  sitemap_generator (~> 6.0, >= 6.0.2)
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails
