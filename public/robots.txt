@@ -1,1 +1,1 @@
-Sitemap: https://remojobs.com/sitemap.xml.gz
+Sitemap: https://remojobs.com/sitemap.xml
