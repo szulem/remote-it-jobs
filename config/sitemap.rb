@@ -1,6 +1,8 @@
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://remojobs.com"
 
+SitemapGenerator::Sitemap.namer = SitemapGenerator::SimpleNamer.new(:sitemap, :extension => '.xml')
+
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
   #
