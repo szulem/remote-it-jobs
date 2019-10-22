@@ -28,6 +28,7 @@ gem 'bundler', '~> 2.0', '>= 2.0.1'
 gem 'aws-sdk'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rubocop', '~> 0.74.0'
+gem 'rspec', '~> 3.9'
 gem 'sitemap_generator'
 # gem 'newrelic_rpm'
 
@@ -50,7 +51,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rspec-rails', '~> 3.8'
+  # gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
