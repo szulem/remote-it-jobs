@@ -80,7 +80,7 @@
             %br
             = shorter_salary(f.salary_from).to_s + " - " + shorter_salary(f.salary_to).to_s + " " + f.currency.to_s + " / " + f.salary_per
 
-%a{href: "#{root_path}"}
+%a{href: "#{root_path}", title: "Go to homepage"}
   %button.btn.btn-default{type: "button"}
     %span.glyphicon.glyphicon-home
     Home
