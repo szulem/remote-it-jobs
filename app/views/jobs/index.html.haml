@@ -8,9 +8,8 @@
     - else
       = ""
     = " remote IT jobs"
-    %br
-    %br
-    = link_to "+ Post a job", new_job_path, class: 'btn btn-primary btn'
+  %p
+    = link_to "+ Post a job", new_job_path, class: 'btn btn-primary btn addbuttontop'
 
 - @categories.each do |cat|
   .jobs-group
