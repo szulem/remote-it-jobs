@@ -44,8 +44,10 @@
     %p= @job.description.html_safe if @job.description.present?
     %br
     %a{href: "#{@job.url}", target: "_blank"}
-      %button.btn.btn-success{type: "button"} Apply for this position
+      %button.btn.btn-success{type: "button"} Apply for this position *
     %br
+    %br
+    %p * Please reference that you found the job on Remojobs.com
     %br
     %br
   / .col-md-1
