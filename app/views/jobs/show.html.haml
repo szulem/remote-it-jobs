@@ -74,7 +74,7 @@
       %ul.list-group
         - @jobs_category.take(10).each do |f|
           %li.list-group-item
-            %b= link_to "#{f.title}", job_path(f)
+            %b= link_to "#{f.title}", job_path(f), title: f.title
             %br
             = f.company_name
             %br
