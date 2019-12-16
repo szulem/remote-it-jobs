@@ -1,5 +1,5 @@
 - provide(:title, @job.title + " - remote job @ " + @job.company_name)
-- provide(:description, "We are " + @job.company_name + " and we are looking for a candidate to work as remote " + @job.title + " in our company. At Remojobs you can find more remote job offers at " + @job.company_name + " and many other companies.")
+- provide(:description, @job.company_name + " is looking for a candidates to work as remote " + @job.title + " with salary: " + salary_space(@job.salary_from).to_s + " - " + salary_space(@job.salary_to).to_s + " " + @job.currency.to_s + " + VAT / " + @job.salary_per  + ". Find best remote jobs on Remojobs.com")
 .row.no-margin
   .col-md-9
     %h1.job-title
