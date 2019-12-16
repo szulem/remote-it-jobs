@@ -15,8 +15,8 @@ module ApplicationHelper
 
   # Returns the full title on a per-page basis
   def full_title(page_title = '')
-    base_title = "Remojobs.com | Remote jobs in IT for programmers, testers, devops and more"
-    end_title = "Remojobs.com - Best remote jobs for programmers"
+    base_title = "REMOJOBS.com | Remote jobs in IT for programmers, testers, devops and more"
+    end_title = "REMOJOBS.com - Best remote jobs in IT"
     if page_title.empty?
       base_title
     else
@@ -26,7 +26,7 @@ module ApplicationHelper
 
   # Returns the full description on a per-page basis
   def full_description(page_description = '')
-    base_description = "Remojobs is the best way to find remote jobs in IT: Programming, Testing, Design, DevOps careers and more other remote work opportunities at innovative companies."
+    base_description = "Remojobs is the best way to find remote jobs in IT: Programming, Testing, Design, DevOps careers and more remote work opportunities at innovative companies."
     if page_description.empty?
       base_description
     else
