@@ -30,6 +30,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rubocop', '~> 0.74.0'
 gem 'sitemap_generator'
 gem 'meta-tags', '~> 2.13'
+gem "recaptcha"
 # gem 'newrelic_rpm'
 
 # Use Redis adapter to run Action Cable in production

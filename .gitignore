@@ -29,3 +29,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore reCAPTCHA configuration keys
+/config/initializers/recaptcha.rb
