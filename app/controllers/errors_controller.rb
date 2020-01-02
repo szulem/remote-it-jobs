@@ -2,7 +2,6 @@ class ErrorsController < ApplicationController
 
   def not_found
     render status: 404
-    render formats: [:xml, :html, :erb, :haml]
   end
 
   def unprocessable_entity
@@ -11,8 +10,6 @@ class ErrorsController < ApplicationController
 
   def internal_server_error
     render status: 500
-    render layout: false
-    render formats: [:xml, :html, :erb, :haml]
   end
 
 end
