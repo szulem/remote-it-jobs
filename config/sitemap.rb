@@ -3,6 +3,21 @@ SitemapGenerator::Sitemap.default_host = "https://remojobs.com"
 
 SitemapGenerator::Sitemap.namer = SitemapGenerator::SimpleNamer.new(:sitemap, :extension => '.xml')
 
+SitemapGenerator::Sitemap.public_path = 'tmp/'
+# store on S3 using Fog (pass in configuration values as shown above if needed)
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new
+# inform the map cross-linking where to find the other maps
+SitemapGenerator::Sitemap.sitemaps_host = "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com/"
+# pick a namespace within your bucket to organize your maps
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
+                                     aws_access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+                                     aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+                                     fog_directory: ENV.fetch('S3_BUCKET_NAME'),
+                                     fog_region: ENV.fetch('S3_REGION')
+)
+
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
   #
