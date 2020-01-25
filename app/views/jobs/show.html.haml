@@ -51,6 +51,10 @@
       %i * Please reference that you found the job on Remojobs.com
     %br
     %br
+    Tags: 
+    - @job.tags.each do |f|
+      = link_to "#{f.name}", root_path, title: "#{f.name}", class: 'btn btn-default btn-xs'
+
   / .col-md-1
   /   = new_offer?(@job)
   .col-md-3
