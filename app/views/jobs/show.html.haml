@@ -51,9 +51,12 @@
       %i * Please reference that you found the job on Remojobs.com
     %br
     %br
-    Tags: 
-    - @job.tags.each do |f|
-      = link_to "#{f.name}", root_path, title: "#{f.name}", class: 'btn btn-default btn-xs'
+    - if @job.tags.count > 0
+      %strong
+        Tags: 
+      - @job.tags.each do |f|
+        %span
+          = link_to "#{f.name}", root_path, title: "#{f.name}", class: 'tag-job'
 
   / .col-md-1
   /   = new_offer?(@job)
@@ -86,6 +89,7 @@
             = f.company_name
             %br
             = shorter_salary(f.salary_from).to_s + " - " + shorter_salary(f.salary_to).to_s + " " + f.currency.to_s + " / " + f.salary_per
+%br
 
 %a{href: "#{root_path}", title: "Go to homepage"}
   %button.btn.btn-default{type: "button"}
