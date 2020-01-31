@@ -56,7 +56,7 @@
         Tags: 
       - @job.tags.each do |f|
         %span
-          = link_to "#{f.name}", root_path, title: "#{f.name}", class: 'tag-job'
+          = link_to "#{f.name}", tag_path(f), title: "#{f.name}", class: 'tag-job'
 
   / .col-md-1
   /   = new_offer?(@job)
