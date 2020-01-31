@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
   root 'jobs#index'
+  
   resources :jobs
   resources :categories
   resources :users
+  resources :tags, only: [:index, :show]
+
   get '/admin123', to: 'users#admin123'
   get '/new-jobs', to: 'users#newjobs'
 
