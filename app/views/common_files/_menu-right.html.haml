@@ -1,4 +1,5 @@
 %ul.nav.navbar-nav.navbar-right
+  = render partial: '/common_files/menu-categories'
   %li{class: "#{current_class?(new_job_path)}"}
     = link_to "<span class='glyphicon glyphicon-plus'></span> Post a job".html_safe, new_job_path, class: "bolded"
   - if !user_signed_in?

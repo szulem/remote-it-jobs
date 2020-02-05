@@ -1,5 +1,5 @@
-- provide(:title, @job.title + " - remote job @ " + @job.company_name)
-- provide(:description, "We are " + @job.company_name + " and we are looking for a candidate to work as remote " + @job.title + " in our company. At Remojobs you can find more remote job offers at " + @job.company_name + " and many other companies.")
+- provide(:title, "Remote " + @job.title + " at " + @job.company_name)
+- provide(:description, @job.company_name + " is looking for a candidates to work as remote " + @job.title + " with salary: " + shorter_salary(@job.salary_from).to_s + " - " + shorter_salary(@job.salary_to).to_s + " " + @job.currency.to_s + " + VAT / " + @job.salary_per  + ". Find best remote jobs on Remojobs.com")
 .row.no-margin
   .col-md-9
     %h1.job-title
@@ -44,10 +44,20 @@
     %p= @job.description.html_safe if @job.description.present?
     %br
     %a{href: "#{@job.url}", target: "_blank"}
-      %button.btn.btn-success{type: "button"} Apply for this position
+      %button.btn.btn-success{type: "button"} Apply for this position *
     %br
     %br
+    %p
+      %i * Please reference that you found the job on Remojobs.com
     %br
+    %br
+    - if @job.tags.count > 0
+      %strong
+        Tags: 
+      - @job.tags.each do |f|
+        %span
+          = link_to "#{f.name}", root_path, title: "#{f.name}", class: 'tag-job'
+
   / .col-md-1
   /   = new_offer?(@job)
   .col-md-3
@@ -74,13 +84,14 @@
       %ul.list-group
         - @jobs_category.take(10).each do |f|
           %li.list-group-item
-            %b= link_to "#{f.title}", job_path(f)
+            %b= link_to "#{f.title}", job_path(f), title: f.title
             %br
             = f.company_name
             %br
             = shorter_salary(f.salary_from).to_s + " - " + shorter_salary(f.salary_to).to_s + " " + f.currency.to_s + " / " + f.salary_per
+%br
 
-%a{href: "#{root_path}"}
+%a{href: "#{root_path}", title: "Go to homepage"}
   %button.btn.btn-default{type: "button"}
     %span.glyphicon.glyphicon-home
     Home

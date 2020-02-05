@@ -116,6 +116,25 @@ h4.bolded {
   }
 }
 
+.tag-job {
+  background-color: #f4f4f4;
+  color: #444444 !important;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 85%;
+  font-weight: 400;
+  line-height: 2.1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.tag-job:hover {
+  background-color: #dddddd;
+  text-decoration: none;
+}
+
 
 
 

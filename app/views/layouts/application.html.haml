@@ -12,6 +12,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag asset_path('favicon.png')
     = render '/common_files/ga'
+    = render '/common_files/crisp-messenger'
   %body
     %header.header
       %nav.navbar.navbar-default.navbar-fixed-top.shadow-border
@@ -23,16 +24,9 @@
               %span.icon-bar
               %span.icon-bar
             .navbar-brand
-              = link_to image_tag("remojobs_30.png", alt: "Remote IT jobs"), root_path
+              = link_to image_tag("remojobs_30.png", title: "Remote IT jobs", alt: "Remote IT jobs"), root_path
           #navbar.collapse.navbar-collapse
-            - if is_mobile_device? || is_tablet_device?
-              .col-xs-6
-                = render partial: '/common_files/menu-categories'
-              .col-xs-6
-                = render partial: '/common_files/menu-right'
-            - else
-              = render partial: '/common_files/menu-categories'
-              = render partial: '/common_files/menu-right'
+            = render partial: '/common_files/menu-right'
                 
     .container
       - flash.each do |key, value|
@@ -50,8 +44,8 @@
         = " / "
         = link_to "Contact", contact_path
         %br
-        = "&copy; 2019 Remojobs.com | Best remote IT job board".html_safe
+        = "&copy; 2019 Remojobs.com | Best remote job board for programmers".html_safe
         %br
-        = "Portal pracy zdalnej IT dla programistów. 100% praca zdalna.".html_safe
+        = "Portal pracy zdalnej IT dla programistów | 100% praca zdalna".html_safe
         %br
         = "Made with #{image_tag 'rubyonrails-icon.png', title: 'Ruby on Rails'} in Olsztyn, Poland by <a href='http://www.szul.eu/' title='Ruby on Rails Developer' target='_blank'>Mirosław Szul</a>".html_safe
