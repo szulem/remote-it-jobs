@@ -7,13 +7,13 @@ SitemapGenerator::Sitemap.public_path = 'tmp/'
 # inform the map cross-linking where to find the other maps
 SitemapGenerator::Sitemap.sitemaps_host = "https://#{ENV['S3_HOST_NAME']}/#{ENV['S3_BUCKET_NAME']}/"
 # pick a namespace within your bucket to organize your maps
-SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+# SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
-                                     aws_access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-                                     aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-                                     fog_directory: ENV.fetch('S3_BUCKET_NAME'),
-                                     fog_region: ENV.fetch('S3_REGION')
+                                     aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+                                     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+                                     fog_directory: ENV['S3_BUCKET_NAME'],
+                                     fog_region: ENV['S3_REGION']
 )
 
 SitemapGenerator::Sitemap.create do
