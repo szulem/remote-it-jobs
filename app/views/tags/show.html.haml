@@ -1,2 +1,4 @@
+- provide(:title, "Remote " + @tag.name.titleize + " jobs")
 %h1= @tag.name
-= render @tagged_jobs
+- @tagged_jobs.where(status: true).order('created_at DESC').each do |f|
+  = render partial: '/common_files/jobs-list', locals: { f: f }
