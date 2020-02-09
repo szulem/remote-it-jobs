@@ -6,7 +6,7 @@ class TagsController < ApplicationController
 
   def show
     @tag =  ActsAsTaggableOn::Tag.friendly.find(params[:id])
-    @tagged_jobs = Job.tagged_with(@tag.name)
+    @tagged_jobs = Job.tagged_with(@tag.name).page(params[:page])
   end
 
 end
