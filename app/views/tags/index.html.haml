@@ -1,2 +1,5 @@
-%h1 Tags
-= render @tags
+%h1.bolded.centered Remote IT jobs
+%h2.centered All tags
+- @tags.each do |f|
+  %span
+    = link_to "#{f.name}", tag_path(f), title: "#{f.name}", class: 'tag-job'
