@@ -52,6 +52,7 @@ SitemapGenerator::Sitemap.create do
     add tag_path(tag), priority: 0.6, lastmod: tag.updated_at
   end
 
+  add '/tags', priority: 0.5
   add '/about', priority: 0.5
   add '/terms', priority: 0.5
   add '/privacy', priority: 0.5
