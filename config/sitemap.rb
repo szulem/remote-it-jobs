@@ -48,6 +48,10 @@ SitemapGenerator::Sitemap.create do
     add job_path(job), priority: 0.6, lastmod: job.updated_at
   end
 
+  ActsAsTaggableOn::Tag.find_each do |tag|
+    add tag_path(tag), priority: 0.6, lastmod: tag.updated_at
+  end
+
   add '/about', priority: 0.5
   add '/terms', priority: 0.5
   add '/privacy', priority: 0.5
