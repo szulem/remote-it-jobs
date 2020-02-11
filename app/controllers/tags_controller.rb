@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
 
   def index
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.order('name ASC')
   end
 
   def show
