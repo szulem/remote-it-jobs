@@ -1,4 +1,9 @@
 - provide(:title, "Remote " + @tag.name.titleize + " jobs")
+- if @tag.taggings_count > 0
+  - provide(:description, @tag.taggings_count.to_s + " Remote " + @tag.name.titleize + " jobs at companies like " + company_name_for_tag(@tagged_jobs).to_s + ".")
+- else
+  - provide(:description, "We have a lot of Remote " + @tag.name.titleize + " jobs for programmers.")
+/ -raise
 %h1.bolded.centered= @tag.name
 %h2.tag.centered= "remote jobs"
 - @tagged_jobs.where(status: true).order('created_at DESC').each do |f|
