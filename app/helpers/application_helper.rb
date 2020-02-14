@@ -91,5 +91,13 @@ module ApplicationHelper
   def shorter_salary(salary)
     number_to_human(salary, units: {thousand: "k"}, format: '%n%u', precision: 4)
   end
+
+  def company_name_for_tag(tag)
+    companies = []
+    tag.each do |f|
+      companies << f.company_name
+    end
+    companies.uniq.take(3).join(", ")
+  end
 	
 end
