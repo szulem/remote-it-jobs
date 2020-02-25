@@ -33,3 +33,5 @@
 
 # Ignore reCAPTCHA configuration keys
 /config/initializers/recaptcha.rb
+
+/app/views/static_pages/
