@@ -4,7 +4,7 @@
     Categories
     %span.caret
   %ul.dropdown-menu
-    - Category.all.each do |f|
+    - Category.all.order('category_number ASC').each do |f|
       %li{class: "#{current_class?(category_path(f))}"}
         - if is_mobile_device? || is_tablet_device?
           = link_to "#{f.name} jobs", category_path(f)

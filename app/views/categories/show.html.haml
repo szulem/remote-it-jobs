@@ -1,7 +1,10 @@
 - provide(:title, @category.name + " remote jobs ")
 - provide(:description, "On Remojobs you can find a lot of " + @category.name + " remote jobs and more in other categories. Work remotely.")
 
-%h1.category.centered= @category.name + " remote jobs (#{is_active_count?(@category.jobs).count})"
+%h1.category.centered= @category.name + " remote jobs" #{is_active_count?(@category.jobs).count}"
+
+- if @category.description.present?
+  %p.half-center.hidden-xs= @category.description.to_s
 
 - @category_jobs.each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
