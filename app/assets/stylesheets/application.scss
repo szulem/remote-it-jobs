@@ -29,7 +29,8 @@ h1.counter {
 }
 
 h1.category {
-  font-size: 2.2em;
+  font-size: 2.8em;
+  font-weight: 600;
 }
 
 h1.job-title {
@@ -118,9 +119,27 @@ h3.job-title {
   font-weight: 600;
 }
 
+.half-center {
+  text-align: center;
+  padding: 15px 20% 25px 20%;
+  font-size: 1.1em;
+}
+
 
 @media screen and (max-width: 768px) {
   .navbar-brand {
     padding: 12px 15px !important;
+  }
+
+  h1.category {
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .half-center {
+    text-align: center;
+    padding: 15px 0 25px 0;
+    font-size: 1.1em;
   }
 }
