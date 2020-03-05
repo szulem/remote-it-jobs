@@ -22,24 +22,22 @@
     .col-md-12
       .offer-head.no-margin
         .row
-          .col-md-2.col-xs-3
-            = "Posted: "
-            %br
-            %b= @job.created_at.strftime("%b %d")
-          .col-md-3.col-xs-4
+          .col-md-3.margin-on-mobile.col-xs-5
             = "Company: "
             %br
             %b= @job.company_name
-          / %li= mail_to @job.email
-          .col-md-3.hidden-xs
+          .col-md-3.margin-on-mobile.col-xs-7
             = "Company size: "
             %br
             %b= @job.company_size.to_s + " people"
-          .col-md-4.col-xs-5
+          .col-md-3.col-xs-5
+            = "Category: "
+            %br
+            %b= @job.category.name.to_s
+          .col-md-3.col-xs-7
             = "Location requirement: "
             %br
             %b= @job.location_requirement.to_s
-          / %li= mail_to @job.email
 
     %p= @job.description.html_safe if @job.description.present?
     %br
