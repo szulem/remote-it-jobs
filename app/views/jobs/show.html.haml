@@ -22,19 +22,19 @@
     .col-md-12
       .offer-head.no-margin
         .row
-          .col-md-3.margin-on-mobile.col-xs-5
+          .col-md-3.margin-on-mobile.col-xs-6
             = "Company: "
             %br
             %b= @job.company_name
-          .col-md-3.margin-on-mobile.col-xs-7
+          .col-md-3.margin-on-mobile.col-xs-6
             = "Company size: "
             %br
             %b= @job.company_size.to_s + " people"
-          .col-md-3.col-xs-5
+          .col-md-3.hidden-xs
             = "Category: "
             %br
             %b= @job.category.name.to_s
-          .col-md-3.col-xs-7
+          .col-md-3.col-xs-12
             = "Location requirement: "
             %br
             %b= @job.location_requirement.to_s
