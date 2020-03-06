@@ -25,7 +25,8 @@
               %span.icon-bar
               %span.icon-bar
             .navbar-brand
-              = link_to image_tag("remojobs_30.png", title: "Remote IT jobs", alt: "Remote IT jobs"), root_path
+              %a{href: root_path, title: "Remote jobs"}
+                = show_svg("remojobs_logo.svg")
           #navbar.collapse.navbar-collapse
             = render partial: '/common_files/menu-right'
                 
