@@ -12,7 +12,7 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.assets.precompile += %w( '.svg' )  
+  config.assets.precompile += %w( .svg .eot .woff .ttf)
   # Must include to get inline SVGs to work in deploy
   config.assets.css_compressor = :sass
 
@@ -63,7 +63,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3003' }
   
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
