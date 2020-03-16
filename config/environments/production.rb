@@ -16,7 +16,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.assets.precompile += %w( '.svg' )  
+  config.assets.precompile += %w( .svg .eot .woff .ttf)
   # Must include to get inline SVGs to work in deploy
   config.assets.css_compressor = :sass
 
