@@ -1,5 +1,5 @@
-- provide(:title, "Remote " + @job.title + " at " + @job.company_name)
-- provide(:description, @job.company_name + " is looking for a remote " + @job.title + " with salary: " + shorter_salary(@job.salary_from).to_s + "-" + shorter_salary(@job.salary_to).to_s + " " + @job.currency.to_s + " net / " + @job.salary_per  + ". Find best remote jobs and work remotely.")
+- provide(:title, "Remote job for " + @job.title + " at " + @job.company_name)
+- provide(:description, @job.company_name + " offers a remote job for a " + @job.title + " with salary: " + shorter_salary(@job.salary_from).to_s + "-" + shorter_salary(@job.salary_to).to_s + " " + @job.currency.to_s + " net / " + @job.salary_per  + ". Find best remote jobs and work remotely from anywhere.")
 .row.no-margin
   .col-md-9
     %h1.job-title
@@ -78,7 +78,8 @@
     
     .panel.panel-default
       .panel-body
-        %h3.sidebar.bolded= "Other #{@job.category.name} jobs"
+        %h3.sidebar.bolded
+          = link_to "More #{@job.category.name} jobs", category_path(@job.category), title: "More remote #{@job.category.name} jobs"
       %ul.list-group
         - @jobs_category.take(10).each do |f|
           %li.list-group-item
