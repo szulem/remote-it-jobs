@@ -4,7 +4,7 @@
 - else
   - provide(:description, "We have a lot of Remote " + @tag.name.titleize + " jobs for programmers.")
 / -raise
-%h1.bolded.centered= @tag.name
+%h1.bolded.centered.text-uppercase= @tag.name
 %h2.tag.centered= "remote jobs"
 - @tagged_jobs.where(status: true).order('created_at DESC').each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
