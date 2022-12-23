@@ -20,6 +20,8 @@ Rails.application.configure do
   # Must include to get inline SVGs to work in deploy
   config.assets.css_compressor = :sass
 
+  Rails.application.config.hosts << 'remojobs.com'
+
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
