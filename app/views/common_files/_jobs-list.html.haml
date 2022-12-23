@@ -5,7 +5,7 @@
         = ""
       - else
         .col-md-1.first-col.hidden-xs
-          = link_to image_tag("#{f.company_logo.url(:mini)}", alt: f.company_name, title: f.company_name), job_path(f)
+          = link_to image_tag(f.company_logo.variant(:mini), alt: f.company_name, title: f.company_name), job_path(f)
     - else
       - if is_mobile_device? || is_tablet_device?
         = ""

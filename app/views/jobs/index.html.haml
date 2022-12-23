@@ -2,14 +2,17 @@
   %h1.counter
     = "We have "
     %b
-      = Job.all.count    
+      / = Job.all.count
+      = "190"
     - if is_mobile_device?
       %br
     - else
       = ""
     = " remote IT jobs"
   %p
-    = link_to "+ Post a job", new_job_path, class: 'btn btn-primary btn addbuttontop'
+    %b
+      / = link_to "+ Post a job", new_job_path, class: 'btn btn-primary btn addbuttontop'
+      = "> Website is currently under reconstruction. Come to us soon. <"
 
 - @categories.each do |cat|
   .jobs-group
