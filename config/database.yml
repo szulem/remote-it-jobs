@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: remoteitjobs_development
+  username: <%= Rails.application.credentials[:development][:database][:username] %>
+  password: <%= Rails.application.credentials[:development][:database][:password] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,5 +83,5 @@ test:
 production:
   <<: *default
   database: remoteitjobs_production
-  username: remoteitjobs
-  password: <%= ENV['REMOTEITJOBS_DATABASE_PASSWORD'] %>
+  username: <%= Rails.application.credentials[:production][:database][:username] %>
+  password: <%= Rails.application.credentials[:production][:database][:password] %>
