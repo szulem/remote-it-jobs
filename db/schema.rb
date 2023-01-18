@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_230201) do
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
     t.string "scope"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
@@ -75,6 +75,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_230201) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.bigint "category_id"
+    t.string "company_logo_file_name"
+    t.string "company_logo_content_type"
+    t.bigint "company_logo_file_size"
+    t.datetime "company_logo_updated_at", precision: nil
     t.string "company_name"
     t.bigint "user_id"
     t.string "slug"

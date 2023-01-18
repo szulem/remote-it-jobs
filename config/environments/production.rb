@@ -4,7 +4,7 @@ Rails.application.configure do
   config.exceptions_app = self.routes
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
+  config.cache_classes = false
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
