@@ -9,12 +9,11 @@ Bundler.require(*Rails.groups)
 module Remoteitjobs
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.1
     # config.load_defaults 7.0
 
     config.time_zone = 'Warsaw'
 
-    config.active_record.legacy_connection_handling = false
     # config.active_record.default_timezone = :local
 
     # to read env variables
