@@ -1,6 +1,6 @@
 - if f.status?
   .row.job-item.center{class: ("promo" if f.promo?)}
-    - if f.company_logo.present?
+    - if f.company_logo.attached?
       - if is_mobile_device? || is_tablet_device?
         = ""
       - else

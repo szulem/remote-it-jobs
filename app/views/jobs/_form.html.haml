@@ -44,7 +44,7 @@
     = f.input :location_requirement, placeholder: "e.g. Global, USA, Europe, Poland, Anywhere"
   .form-group
     = f.file_field :company_logo
-    = image_tag(@job.company_logo.variant(:thumb)) if @job.company_logo.present?
+    = image_tag(@job.company_logo.variant(:thumb)) if @job.company_logo.attached?
   - if current_user.admin?
     - if @users.present? && @job.user.present?
       .form-group

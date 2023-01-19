@@ -8,7 +8,7 @@
     - if is_mobile_device? || is_tablet_device?
       .thumbnail.centered
         .caption
-          - if @job.company_logo.present?
+          - if @job.company_logo.attached?
             = image_tag("#{@job.company_logo.variant(:medium)}", alt: "#{@job.company_name}", title: "#{@job.company_name}", class: "center-image")
           - else
             = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
@@ -65,7 +65,7 @@
       - else
         .thumbnail
           .caption
-            - if @job.company_logo.present?
+            - if @job.company_logo.attached?
               = image_tag(@job.company_logo.variant(:medium), alt: "#{@job.company_name}", title: "#{@job.company_name}", class: "center-image")
             - else
               = image_tag("https://dummyimage.com/234x200/f4f4f4/000000.png&text=#{@job.company_name}")
