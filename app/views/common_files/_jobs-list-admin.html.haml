@@ -1,5 +1,5 @@
 .row.job-item.center{class: ("promo" if f.promo?)}
-  - if f.company_logo.present?
+  - if f.company_logo.attached?
     .col-md-1.first-col
       - if is_mobile_device? || is_tablet_device?
         = link_to image_tag(f.company_logo.variant(:micro)), job_path(f)
