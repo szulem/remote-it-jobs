@@ -36,9 +36,10 @@ gem 'rubocop', '~> 0.74.0'
 gem 'sitemap_generator'
 # gem 'fog-aws'
 gem 'meta-tags', '~> 2.13'
-gem "recaptcha"
+# gem "recaptcha"
 gem 'acts-as-taggable-on', '~> 6.0'
 # gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
+gem 'invisible_captcha'
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
 # gem 'newrelic_rpm'
@@ -66,9 +67,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   # gem 'spring-watcher-listen', '~> 2.0.0'

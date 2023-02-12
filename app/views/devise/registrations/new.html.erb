@@ -18,8 +18,8 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <div class="form-group">
-      <%= recaptcha_tags %>
-      <% "<span class='invalid-feedback'>".html_safe + flash[:recaptcha_error] + "</span>".html_safe %>
+      <%= invisible_captcha %>
+      <% "<span class='invalid-feedback'>".html_safe + flash[:error] + "</span>".html_safe %>
     </div>
   </div>
 
