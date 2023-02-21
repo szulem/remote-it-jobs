@@ -40,6 +40,11 @@ class Job < ApplicationRecord
     end
   end
 
+  after_create :new_job_send
+  def new_job_send
+    JobMailer.new_job_send(self).deliver
+  end
+
   extend FriendlyId
   friendly_id :company_and_title, use: :slugged
   def company_and_title
