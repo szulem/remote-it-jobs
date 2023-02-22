@@ -40,9 +40,11 @@ class Job < ApplicationRecord
     end
   end
 
-  after_create :new_job_send
+  before_validation :new_job_send
   def new_job_send
-    JobMailer.new_job_send(self).deliver
+    if status == true && will_save_change_to_status?(from: false, to: true)
+      JobMailer.new_job_send(self).deliver
+    end
   end
 
   extend FriendlyId
