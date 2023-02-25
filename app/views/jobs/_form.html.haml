@@ -11,7 +11,7 @@
   .form-group
     .row-form
       .col-md-6
-        = f.input :title, placeholder: "Junior Ruby on Rails Developer"
+        = f.input :title, placeholder: "Ruby on Rails Developer"
       .col-md-6
         = f.association :category
         / = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, class: 'form-control'
@@ -21,9 +21,9 @@
   .form-group
     .row-form
       .col-md-3
-        = f.input :salary_from, label: "Salary from (net)", placeholder: "3500"
+        = f.input :salary_from, label: "Salary from (net)", placeholder: "7500"
       .col-md-3
-        = f.input :salary_to, label: "Salary to (net)", placeholder: "8500"
+        = f.input :salary_to, label: "Salary to (net)", placeholder: "12500"
       .col-md-3
         = f.input :currency, as: :select, collection: ["PLN", "EUR", "USD", "GBP"], include_blank: true, selected: @job.currency
       .col-md-3
