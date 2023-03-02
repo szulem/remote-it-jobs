@@ -1,4 +1,4 @@
-- provide(:title, "Remote job for " + @job.title + " at " + @job.company_name)
+- provide(:title, "Remote " + @job.title + " job at " + @job.company_name)
 - provide(:description, @job.company_name + " offers a remote job for a " + @job.title + " with salary: " + shorter_salary(@job.salary_from).to_s + "-" + shorter_salary(@job.salary_to).to_s + " " + @job.currency.to_s + " net / " + @job.salary_per  + ". Find best remote jobs and work remotely from anywhere.")
 .row.no-margin
   .col-md-9
