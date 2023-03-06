@@ -1,4 +1,4 @@
-- provide(:title, "Remote " + @tag.name.titleize + " jobs")
+- provide(:title, "Remote jobs: " + @tag.name.titleize)
 - if @tag.taggings_count > 0
   - provide(:description, @tag.taggings_count.to_s + " Remote " + @tag.name.titleize + " jobs at companies like " + company_name_for_tag(@tagged_jobs).to_s + ".")
 - else
