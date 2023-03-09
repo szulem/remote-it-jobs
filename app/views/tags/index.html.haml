@@ -1,5 +1,6 @@
-%h1.bolded.centered Remote IT jobs
-%h2.centered Tag cloud
+%h1.bolded.centered
+  = link_to "Remote jobs", jobs_path, title: "Remote jobs"
+%h3.centered Tag cloud
 - @tags.each do |f|
   %span
     = link_to "#{f.name}", tag_path(f), title: "#{f.name}", class: 'tag-job'
