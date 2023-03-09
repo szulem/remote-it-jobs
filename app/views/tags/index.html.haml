@@ -3,4 +3,4 @@
 %h3.centered Tag cloud
 - @tags.each do |f|
   %span
-    = link_to "#{f.name}", tag_path(f), title: "#{f.name}", class: 'tag-job'
+    = link_to "#{f.name}", tag_path(f), title: "#{f.name} remote jobs", class: 'tag-job'
