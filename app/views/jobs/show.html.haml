@@ -5,6 +5,8 @@
     %h1.job-title
       = @job.title
       = new_offer?(@job)
+      %br
+      %small=@job.company_name
     - if is_mobile_device? || is_tablet_device?
       .thumbnail.centered
         .caption
@@ -22,21 +24,20 @@
     .col-md-12
       .offer-head.no-margin
         .row
-          .col-md-2.col-xs-3
-            = "Posted: "
-            %br
-            %b= @job.updated_at.strftime("%b %d")
-          .col-md-3.col-xs-4
-            = "Company: "
-            %br
-            %b= @job.company_name
-          .col-md-3.hidden-xs
-            = "Company size: "
-            %br
-            %b= @job.company_size.to_s + " people"
           .col-md-4.col-xs-5
-            = "Location: "
-            %br
+            - if is_mobile_device?
+              = "<span class='glyphicon glyphicon-time'></span>".html_safe
+            - else
+              = "Posted: "
+            %b= @job.updated_at.strftime("%b %d")
+          .col-md-4.hidden-xs
+            = "Company size: "
+            %b= @job.company_size.to_s + " people"
+          .col-md-4.col-xs-7
+            - if is_mobile_device?
+              = "<span class='glyphicon glyphicon-map-marker'></span>".html_safe
+            - else
+              = "Location: "
             %b= @job.location_requirement.to_s
 
     %p= @job.description.html_safe if @job.description.present?
@@ -54,7 +55,7 @@
         Tags: 
       - @job.tags.each do |f|
         %span
-          = link_to "#{f.name}", tag_path(f), title: "#{f.name}", class: 'tag-job'
+          = link_to "#{f.name}", tag_path(f), title: "#{f.name} remote jobs", class: 'tag-job'
 
   / .col-md-1
   /   = new_offer?(@job)

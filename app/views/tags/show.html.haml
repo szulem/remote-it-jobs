@@ -4,10 +4,10 @@
 - else
   - provide(:description, "We have a lot of Remote " + @tag.name.titleize + " jobs for programmers.")
 / -raise
-%h1.bolded.centered.homepage-count
+%h1.bolded.centered.tag-title
   = @tag.name
   %br
-  = "remote jobs"
+  %small= "remote jobs"
 - @tagged_jobs.where(status: true).order('created_at DESC').each do |f|
   = render partial: '/common_files/jobs-list', locals: { f: f }
 .col-centered
