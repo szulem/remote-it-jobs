@@ -26,7 +26,7 @@ module ApplicationHelper
 
   # Returns the full description on a per-page basis
   def full_description(page_description = '')
-    base_description = "The best way to find remote jobs for Developers and other IT specialists. Work remotely at innovative tech companies."
+    base_description = "Best way to find remote jobs for Developers and other IT specialists. Work remotely at innovative tech companies."
     if page_description.empty?
       base_description
     else
