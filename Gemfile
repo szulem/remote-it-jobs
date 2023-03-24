@@ -5,13 +5,14 @@ ruby '2.7.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
-gem 'rails', '~> 6.0', '>= 6.0.6.1'
-# gem 'rails', '~> 7.0', '>= 7.0.4'
+# gem 'rails', '~> 6.0', '>= 6.0.6.1'
+gem 'rails', '~> 7.0', '>= 7.0.4.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 # gem 'puma', '~> 6.0', '>= 6.0.2'
 # gem 'activerecord', '~> 5.2', '>= 5.2.2.1'
-gem 'activerecord', '~> 6.0', '>= 6.0.6.1'
+# gem 'activerecord', '~> 6.0', '>= 6.0.6.1'
+gem 'activerecord', '~> 7.0', '>= 7.0.4.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -37,8 +38,8 @@ gem 'sitemap_generator'
 # gem 'fog-aws'
 gem 'meta-tags', '~> 2.13'
 # gem "recaptcha"
-gem 'acts-as-taggable-on', '~> 6.0'
-# gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
+# gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts-as-taggable-on', '~> 9.0', '>= 9.0.1'
 gem 'invisible_captcha'
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
@@ -58,6 +59,7 @@ gem 'capistrano-rails', group: :development
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mailjet', '~> 1.7', '>= 1.7.3'
+gem "sprockets-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
