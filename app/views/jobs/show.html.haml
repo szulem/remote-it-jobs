@@ -3,7 +3,7 @@
 .row.no-margin
   .col-md-9
     %h1.job-title
-      = @job.title
+      = "Remote #{@job.title}"
       = new_offer?(@job)
       %br
       %small=@job.company_name
