@@ -11,19 +11,19 @@
         = ""
       - else
         .col-md-1.first-col.hidden-xs
-          = link_to image_tag("https://dummyimage.com/60x40/f4f4f4/000000.png&text=#{instead_of_logo(f.company_name)}"), job_path(f)
+          = link_to image_tag("https://dummyimage.com/60x40/f4f4f4/000000.png&text=#{instead_of_logo(f.company_name)}", title: f.company_name, alt: f.company_name), job_path(f)
 
     .col-md-6
       - if is_mobile_device? || is_tablet_device?
         %b
           = f.company_name
         %h3.title-job-list
-          = link_to "#{f.title}", job_path(f), title: "#{f.title} at #{f.company_name}"
+          = link_to "#{f.title}", job_path(f), title: "Remote #{f.title} at #{f.company_name}"
           = new_offer?(f)
         = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?    
       - else
         %h3.title-job-list
-          = link_to "#{f.title}", job_path(f), title: "#{f.title} at #{f.company_name}"
+          = link_to "#{f.title}", job_path(f), title: "Remote #{f.title} at #{f.company_name}"
           = new_offer?(f)
         = f.company_name
 
