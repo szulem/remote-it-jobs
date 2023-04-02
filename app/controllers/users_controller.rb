@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @jobs = Job.where(user: current_user).order('created_at DESC').page(params[:page])
-    @jobs_all = Job.all.order('created_at DESC')
+    @jobs_all = Job.includes(:user).order('created_at DESC')
 
     if @user != current_user
       flash[:error] = "You don't have permission to display this page."
