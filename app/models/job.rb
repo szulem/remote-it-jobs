@@ -4,12 +4,7 @@ class Job < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  has_one_attached :company_logo do |attachable|
-    attachable.variant :medium, resize_to_limit: [234, 300]
-    attachable.variant :thumb, resize_to_limit: [100, 100]
-    attachable.variant :mini, resize_to_limit: [80, 40]
-    attachable.variant :micro, resize_to_limit: [50, 50]
-  end
+  has_one_attached :company_logo
 
   paginates_per 15
 
