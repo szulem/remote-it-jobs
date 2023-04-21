@@ -15,7 +15,7 @@ module ApplicationHelper
 
   # Returns the full title on a per-page basis
   def full_title(page_title = '')
-    base_title = "REMOJOBS #1 IT Job board with remote job offers & salary included"
+    base_title = "REMOJOBS #1 IT Job board with remote jobs. Salary in each offer!"
     end_title = "REMOJOBS"
     if page_title.empty?
       base_title
