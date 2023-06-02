@@ -5,7 +5,7 @@
         = ""
       - else
         .col-md-1.first-col.hidden-xs
-          = link_to image_tag(f.company_logo.variant(:mini), alt: f.company_name, title: f.company_name), job_path(f)
+          = link_to image_tag(f.company_logo, alt: f.company_name, title: f.company_name), job_path(f)
     - else
       - if is_mobile_device? || is_tablet_device?
         = ""
@@ -13,7 +13,7 @@
         .col-md-1.first-col.hidden-xs
           = link_to image_tag("https://dummyimage.com/60x40/f4f4f4/000000.png&text=#{instead_of_logo(f.company_name)}", title: f.company_name, alt: f.company_name), job_path(f)
 
-    .col-md-6
+    .col-md-7
       - if is_mobile_device? || is_tablet_device?
         %b
           = f.company_name
@@ -22,14 +22,15 @@
           = new_offer?(f)
         = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?    
       - else
-        %h3.title-job-list
+        %h4.title-job-list
           = link_to "#{f.title}", job_path(f), title: "Remote #{f.title} at #{f.company_name}"
+          = " @ "
+          = f.company_name
           = new_offer?(f)
-        = f.company_name
 
     .col-md-3.hidden-xs
-      %h4.bolded Salary
-      = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
+      %h4
+        = salary_space(f.salary_from).to_s + " - " + salary_space(f.salary_to).to_s + " " + f.currency + " / " + f.salary_per if f.salary_from.present?
 
     - if user_signed_in? && current_user.admin?
       .col-md-2.hidden-xs
@@ -50,8 +51,8 @@
     - else
       .col-md-1.hidden-xs
 
-    .col-md-1.hidden-xs
-      - if user_signed_in? && current_page?(user_path(current_user))
-        = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
-      - else
-        = link_to "Apply", job_path(f), class: 'btn btn-success'
+    / .col-md-1.hidden-xs
+    /   - if user_signed_in? && current_page?(user_path(current_user))
+    /     = render partial: '/common_files/jobs-list-buttons', locals: { f: f }
+    /   - else
+    /     = link_to "Apply", job_path(f), class: 'btn btn-success'
