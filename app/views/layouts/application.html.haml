@@ -12,6 +12,8 @@
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Quicksand&display=swap'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag asset_path('favicon.png')
+    - if @canon_url.present?
+      %link{href: @canon_url, rel: "canonical"}
     = render '/common_files/ga'
     = render '/common_files/crisp-messenger'
   %body
