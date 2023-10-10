@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'jobs#index'
   
   resources :jobs
-  resources :categories
+  resources :categories, except: [:index]
   resources :users
   resources :tags, only: [:index, :show]
 
